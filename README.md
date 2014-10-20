@@ -19,8 +19,8 @@ $ npm install -g generator-admin
 
 Make a new directory, and `cd` into it:
 ```
-mkdir my-new-project
-cd my-new-project
+$ mkdir my-new-project
+$ cd my-new-project
 ```
 
 Next, add a global config file(config.json) to generate the basic framework. Here is an example of what this global config might look like:
@@ -138,7 +138,7 @@ Then, add config directory(config\*.json) for all model config, like config\vide
 
 Run `yo admin`:
 ```
-yo admin
+$ yo admin
 ```
 
 Using the values found in the config file, the generator will add views, controllers, models, etc to add the CRUD functionality for your application.  There are certain blocks of code that need to be injected into existing files (for example, the routes, the module, etc).  There are two steps the admin generator can accomplish this:
