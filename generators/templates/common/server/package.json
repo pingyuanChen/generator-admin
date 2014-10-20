@@ -1,0 +1,12 @@
+{
+  "name": "dolphinOperation",
+  "version": "0.1.0",
+  "devDependencies": {
+    "body-parser": "^1.5.2",
+    "compression": "^1.0.11",
+    "cors": "^2.4.1",
+    "errorhandler": "^1.1.1",
+    "express": "^4.8.0",
+    "morgan": "^1.2.2"
+  }
+}

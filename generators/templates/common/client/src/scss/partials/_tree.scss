@@ -1,0 +1,37 @@
+ cc-tree {
+
+    /* prevent user selection */
+
+    -moz-user-select: -moz-none;
+
+    -khtml-user-select: none;
+
+    -webkit-user-select: none;
+
+    -ms-user-select: none;
+
+    user-select: none;
+
+    /* default */
+
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+
+    text-decoration: none;
+
+}
+cc-tree ul {
+
+    margin: 0;
+
+    padding: 0;
+
+    list-style: none;
+
+    border: none;
+
+    overflow: hidden;
+
+}
+cc-tree li i, cc-tree li .tree-label {
+    cursor: pointer;
+}

@@ -1,0 +1,87 @@
+.leftnav{
+	position: absolute;
+	top: $headerHeight;
+	width: $leftnavWidth;
+  font-size: 17px;
+  line-height: 30px;
+  color: #939da8;
+	// box-shadow: -3px 0 2px #ccc inset;
+	min-height: 100%;
+  background: #2E363F;
+
+  .tree-first-level{
+    border-bottom: 1px solid #000;
+    border-top: 1px solid #555;
+  }
+
+  .tree-first-level:nth-child(1){
+    border-top: none;
+  }
+
+  .tree-first-level:last-child{
+    border-bottom: none;
+  }
+
+  .tree-first-level > .tree-row > .tree-branch-head{
+    float: left;
+    width: 40px;
+    height: 35px;
+  }
+
+  .tree-first-level:nth-child(1) > .tree-row > .tree-branch-head{
+    background: url(../assets/images/nav_pic.png) no-repeat 20px -55px;;
+  }
+  .tree-first-level:nth-child(2) > .tree-row > .tree-branch-head{
+    background: url(../assets/images/nav_pic.png) no-repeat 22px -140px;
+  }
+  .tree-first-level:nth-child(3) > .tree-row > .tree-branch-head{
+    background: url(../assets/images/nav_pic.png) no-repeat 22px -95px;
+  }
+
+  .tree-selected{
+    color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+    background: $btnColor;
+    position: relative;
+    &:before {
+      content: '';
+      width: 10px;
+      height: 10px;
+      display: block;
+      position: absolute;
+      background: #EEE;
+      right: -5px;
+      top: 20px;
+      transform: rotate(45deg);
+    }
+  }
+
+  .tree-label span{
+    display: inline-block;
+    padding: 0 10px;
+    line-height: 50px;
+    font-size: 16px;
+  }
+
+
+
+  treeitem .tree-label span{
+    padding-left: 34px;
+    font-size: 14px;
+  }
+}
+li.ng-scope.tree-leaf {
+  background: #1F262D;
+}
+.module-select-tree {
+  li.ng-scope.tree-leaf {
+    background: #fff;
+  }
+}
+
+.leftnav .tree-first-level:last-child {
+  border-bottom: #555555 1px solid;
+  .tree-row {
+    border-bottom: #000 1px solid;
+  }
+}

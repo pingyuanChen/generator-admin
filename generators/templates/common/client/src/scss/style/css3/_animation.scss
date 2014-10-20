@@ -1,0 +1,18 @@
+@import "shared";
+
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes $animation-name {
+        @content;
+    }
+    @-moz-keyframes $animation-name {
+        @content;
+    }
+    @keyframes $animation-name {
+        @content;
+    }
+}
+
+@mixin animation($animation) {
+    @include experimental(animation, #{$animation},
+        -moz, -webkit, not -o, not -ms, not -khtml, official);
+}

@@ -1,0 +1,58 @@
+{
+    "status": 0,
+    "msg": "",
+    "data": {
+        "filters": {
+            "items": [
+                {
+                    "display_value": "Android",
+                    "value": "Android"
+                },
+                {
+                    "display_value": "Add-on",
+                    "value": "Add-on"
+                }
+            ],
+            "name": "platform"
+        },
+        "items": [
+            {
+                "id": "01",
+                "title": "冰川时代",
+                "source": "搜狐",
+                "status": "Finshed",
+                "director": "梁靖琪",
+                "type": "movie",
+                "release_time": "2012-2-13"
+            },
+            {
+                "id": "02",
+                "title": "艾玛",
+                "source": "腾讯",
+                "status": "Draft",
+                "director": "许绍雄",
+                "type": "hot",
+                "release_time": "2013-2-13"
+            },
+            {
+                "id": "03",
+                "title": "战神",
+                "source": "搜狐",
+                "status": "Finshed",
+                "director": "江美仪",
+                "type": "movie",
+                "release_time": "2014-6-13"
+            },
+            {
+                "id": "04",
+                "title": "师徒",
+                "source": "搜狐",
+                "status": "Draft",
+                "director": "文伟鸿",
+                "type": "movie",
+                "release_time": "2014-10-02"
+            }
+        ],
+        "total": 200
+    }
+}

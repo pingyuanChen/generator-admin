@@ -1,0 +1,34 @@
+@import "../../css3/box";
+
+
+@mixin ellipsis($no-wrap: true) {
+  @if $no-wrap { white-space: nowrap; }
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Parameters:
+//
+// * `$font-size` -- string, $font-size: 24px.
+// * `$line-height` -- string, $line-height: 30px.
+// * `$lines` -- int, 最多显示几行.
+// * Examples:
+//   @include multi-ellipsis(20px, 30px, 2, true);
+@mixin multi-ellipsis($font-size, $line-height, $lines, $is-adaptive: false){
+  $font-size: unquote($font-size);
+  $line-height: unquote($line-height);
+  @if $is-adaptive {
+    //容器的高度随着文字的多少自适应
+    max-height: $line-height * $lines;
+  }
+  @else{
+    height: $line-height * $lines;
+  }
+  line-height: $line-height;
+  font-size: $font-size;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  @include display-box();
+  -webkit-line-clamp: 2;
+  @include box-orient(vertical);
+}

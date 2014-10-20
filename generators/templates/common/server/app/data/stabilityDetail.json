@@ -1,0 +1,328 @@
+{
+    "status": 0,
+    "msg": "",
+    "data": {
+        "items": [
+            [
+                {
+                    "Brazil": {
+                        "count": 1007,
+                        "mobile_rate": 0.76,
+                        "avg_time": 0.486,
+                        "wifi_rate": 0.93
+                    },
+                    "Indonesia": {
+                        "count": 321,
+                        "mobile_rate": 0.76,
+                        "avg_time": 0.822,
+                        "wifi_rate": 0.89
+                    },
+                    "India": {
+                        "count": 431,
+                        "mobile_rate": 0.75,
+                        "avg_time": 0.698,
+                        "wifi_rate": 0.94
+                    },
+                    "China": {
+                        "count": 490,
+                        "mobile_rate": 0.02,
+                        "avg_time": 0.445,
+                        "wifi_rate": 0.06
+                    },
+                    "UAE": {
+                        "count": 871,
+                        "mobile_rate": 0.9,
+                        "avg_time": 0.449,
+                        "wifi_rate": 0.92
+                    },
+                    "Russia": {
+                        "count": 1975,
+                        "mobile_rate": 0.84,
+                        "avg_time": 0.472,
+                        "wifi_rate": 0.97
+                    }
+                }
+            ],
+            [
+                {
+                    "Brazil": {
+                        "count": 1007,
+                        "mobile_rate": 0.76,
+                        "avg_time": 0.486,
+                        "wifi_rate": 0.93
+                    },
+                    "Indonesia": {
+                        "count": 321,
+                        "mobile_rate": 0.76,
+                        "avg_time": 0.822,
+                        "wifi_rate": 0.89
+                    },
+                    "India": {
+                        "count": 431,
+                        "mobile_rate": 0.75,
+                        "avg_time": 0.698,
+                        "wifi_rate": 0.94
+                    },
+                    "China": {
+                        "count": 490,
+                        "mobile_rate": 0.02,
+                        "avg_time": 0.445,
+                        "wifi_rate": 0.06
+                    },
+                    "UAE": {
+                        "count": 871,
+                        "mobile_rate": 0.9,
+                        "avg_time": 0.449,
+                        "wifi_rate": 0.92
+                    },
+                    "Russia": {
+                        "count": 1975,
+                        "mobile_rate": 0.84,
+                        "avg_time": 0.472,
+                        "wifi_rate": 0.97
+                    }
+                }
+            ],
+            [
+                {
+                    "Brazil": {
+                        "count": 1007,
+                        "mobile_rate": 0.76,
+                        "avg_time": 0.486,
+                        "wifi_rate": 0.93
+                    },
+                    "Indonesia": {
+                        "count": 321,
+                        "mobile_rate": 0.76,
+                        "avg_time": 0.822,
+                        "wifi_rate": 0.89
+                    },
+                    "India": {
+                        "count": 431,
+                        "mobile_rate": 0.75,
+                        "avg_time": 0.698,
+                        "wifi_rate": 0.94
+                    },
+                    "China": {
+                        "count": 490,
+                        "mobile_rate": 0.02,
+                        "avg_time": 0.445,
+                        "wifi_rate": 0.06
+                    },
+                    "UAE": {
+                        "count": 871,
+                        "mobile_rate": 0.9,
+                        "avg_time": 0.449,
+                        "wifi_rate": 0.92
+                    },
+                    "Russia": {
+                        "count": 1975,
+                        "mobile_rate": 0.84,
+                        "avg_time": 0.472,
+                        "wifi_rate": 0.97
+                    }
+                }
+            ],
+            [
+                {
+                    "Brazil": {
+                        "count": 1007,
+                        "mobile_rate": 0.76,
+                        "avg_time": 0.486,
+                        "wifi_rate": 0.93
+                    },
+                    "Indonesia": {
+                        "count": 321,
+                        "mobile_rate": 0.76,
+                        "avg_time": 0.822,
+                        "wifi_rate": 0.89
+                    },
+                    "India": {
+                        "count": 431,
+                        "mobile_rate": 0.75,
+                        "avg_time": 0.698,
+                        "wifi_rate": 0.94
+                    },
+                    "China": {
+                        "count": 490,
+                        "mobile_rate": 0.02,
+                        "avg_time": 0.445,
+                        "wifi_rate": 0.06
+                    },
+                    "UAE": {
+                        "count": 871,
+                        "mobile_rate": 0.9,
+                        "avg_time": 0.449,
+                        "wifi_rate": 0.92
+                    },
+                    "Russia": {
+                        "count": 1975,
+                        "mobile_rate": 0.84,
+                        "avg_time": 0.472,
+                        "wifi_rate": 0.97
+                    }
+                }
+            ],
+            [
+                {
+                    "Brazil": {
+                        "count": 1007,
+                        "mobile_rate": 0.76,
+                        "avg_time": 0.486,
+                        "wifi_rate": 0.93
+                    },
+                    "Indonesia": {
+                        "count": 321,
+                        "mobile_rate": 0.76,
+                        "avg_time": 0.822,
+                        "wifi_rate": 0.89
+                    },
+                    "India": {
+                        "count": 431,
+                        "mobile_rate": 0.75,
+                        "avg_time": 0.698,
+                        "wifi_rate": 0.94
+                    },
+                    "China": {
+                        "count": 490,
+                        "mobile_rate": 0.02,
+                        "avg_time": 0.445,
+                        "wifi_rate": 0.06
+                    },
+                    "UAE": {
+                        "count": 871,
+                        "mobile_rate": 0.9,
+                        "avg_time": 0.449,
+                        "wifi_rate": 0.92
+                    },
+                    "Russia": {
+                        "count": 1975,
+                        "mobile_rate": 0.84,
+                        "avg_time": 0.472,
+                        "wifi_rate": 0.97
+                    }
+                }
+            ],
+            [
+                {
+                    "Brazil": {
+                        "count": 1007,
+                        "mobile_rate": 0.76,
+                        "avg_time": 0.486,
+                        "wifi_rate": 0.93
+                    },
+                    "Indonesia": {
+                        "count": 321,
+                        "mobile_rate": 0.76,
+                        "avg_time": 0.822,
+                        "wifi_rate": 0.89
+                    },
+                    "India": {
+                        "count": 431,
+                        "mobile_rate": 0.75,
+                        "avg_time": 0.698,
+                        "wifi_rate": 0.94
+                    },
+                    "China": {
+                        "count": 490,
+                        "mobile_rate": 0.02,
+                        "avg_time": 0.445,
+                        "wifi_rate": 0.06
+                    },
+                    "UAE": {
+                        "count": 871,
+                        "mobile_rate": 0.9,
+                        "avg_time": 0.449,
+                        "wifi_rate": 0.92
+                    },
+                    "Russia": {
+                        "count": 1975,
+                        "mobile_rate": 0.84,
+                        "avg_time": 0.472,
+                        "wifi_rate": 0.97
+                    }
+                }
+            ],
+            [
+                {
+                    "Brazil": {
+                        "count": 1007,
+                        "mobile_rate": 0.76,
+                        "avg_time": 0.486,
+                        "wifi_rate": 0.93
+                    },
+                    "Indonesia": {
+                        "count": 321,
+                        "mobile_rate": 0.76,
+                        "avg_time": 0.822,
+                        "wifi_rate": 0.89
+                    },
+                    "India": {
+                        "count": 431,
+                        "mobile_rate": 0.75,
+                        "avg_time": 0.698,
+                        "wifi_rate": 0.94
+                    },
+                    "China": {
+                        "count": 490,
+                        "mobile_rate": 0.02,
+                        "avg_time": 0.445,
+                        "wifi_rate": 0.06
+                    },
+                    "UAE": {
+                        "count": 871,
+                        "mobile_rate": 0.9,
+                        "avg_time": 0.449,
+                        "wifi_rate": 0.92
+                    },
+                    "Russia": {
+                        "count": 1975,
+                        "mobile_rate": 0.84,
+                        "avg_time": 0.472,
+                        "wifi_rate": 0.97
+                    }
+                }
+            ],
+            [
+                {
+                    "Brazil": {
+                        "count": 1007,
+                        "mobile_rate": 0.76,
+                        "avg_time": 0.486,
+                        "wifi_rate": 0.93
+                    },
+                    "Indonesia": {
+                        "count": 321,
+                        "mobile_rate": 0.76,
+                        "avg_time": 0.822,
+                        "wifi_rate": 0.89
+                    },
+                    "India": {
+                        "count": 431,
+                        "mobile_rate": 0.75,
+                        "avg_time": 0.698,
+                        "wifi_rate": 0.94
+                    },
+                    "China": {
+                        "count": 490,
+                        "mobile_rate": 0.02,
+                        "avg_time": 0.445,
+                        "wifi_rate": 0.06
+                    },
+                    "UAE": {
+                        "count": 871,
+                        "mobile_rate": 0.9,
+                        "avg_time": 0.449,
+                        "wifi_rate": 0.92
+                    },
+                    "Russia": {
+                        "count": 1975,
+                        "mobile_rate": 0.84,
+                        "avg_time": 0.472,
+                        "wifi_rate": 0.97
+                    }
+                }
+            ]
+        ]
+    }
+}

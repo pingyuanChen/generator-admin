@@ -1,0 +1,88 @@
+
+thead{
+  background: #efefef;
+}
+.table>thead>tr>th{
+  text-align: center;
+  vertical-align: middle;
+  line-height: 34px;
+}
+[ng-table-pagination]{
+  overflow: hidden;
+}
+.ng-table-pager{
+  float: right;
+  position: relative;
+  height: 100px;
+}
+.ng-table-pagination{
+  // position: absolute;
+  // right: 20px;
+  // top: 30px;
+}
+.ng-table-counts{
+  display: none;
+}
+.list-content.loading-container {
+    position: relative;
+    min-height: 400px;
+}
+.list-content.loading-container .loading-layer:before, .list-content.loading-container .loading-layer:after {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    min-height: 50px;
+    min-width: 50px;
+}
+.list-content.loading-container .loading-layer:before {
+    background-color: white;
+    background-image: url('../assets/images/loading.gif');
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.5;
+}
+tbody {
+  background: white;
+}
+.table-bordered, table,  .table-bordered>thead>tr>th, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>tbody>tr>td, .table-bordered>tfoot>tr>td{
+  border: 1px solid $borderColor
+}
+.no-data{
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  margin-left: -100px;
+}
+
+a.btn.btn-default{
+  padding: 4px 12px;
+  border: 1px solid #eee;
+}
+
+
+.action-icon{
+  &:hover{
+    color: $btnColor;
+  }
+}
+.current-page.disabled a{
+  @include buttonStyle(bButton);
+  border: 1px solid #ddd;
+}
+
+.ng-table-pager ul li a {
+  color: #666;
+  &:active{
+    @include buttonStyle(bButton);
+    border: 1px solid #ddd;
+  }
+}
+
+.table>tbody>tr>td.edit-column{
+  padding: 0 6px;
+  vertical-align: middle;
+}

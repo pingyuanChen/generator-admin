@@ -1,0 +1,52 @@
+$headerHeight: 60px;
+$leftnavWidth: 220px;
+$bgColor: #eee;
+$borderColor: #d0d0d0;
+$fontColor: #666;
+$btnColor:#28b779;
+$lineHeight: 40px;
+
+@mixin buttonStyle($type) {
+    @if $type == bButton {
+      background: #006ECB;
+      color:#fff;
+      border:none;
+      &:hover{
+        color:#fff;
+        background:#005FAF;
+      }
+    }
+    @if $type == wButton {
+      background: #fff;
+      color:$fontColor;
+      border-color:$borderColor;
+      &:hover{
+        background:#006ECB;
+        color: #fff;
+      }
+    }
+    @if $type == bgButton {
+      background: $bgColor;
+      color:$fontColor;
+      border-color:$borderColor;
+      &:hover{
+        background:#28b779;
+        color: #fff;
+      }
+    }
+    @if $type == gButton {
+      background: #28b779;
+      color:#fff;
+      &:hover{
+        background:#18a367;
+      }
+    }
+}
+
+@mixin usualBorder($direction: '') {
+  @if $direction == ''{
+    border: 1px $borderColor solid;
+  } @else {
+    border-#{$direction}: 1px $borderColor solid;
+  }
+}

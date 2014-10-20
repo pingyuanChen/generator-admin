@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+  <title ng-bind="title"></title>
+  <style>
+  /* This helps the ng-show/ng-hide animations start at the right place. */
+  /* Since Angular has this but needs to load, this gives us the class early. */
+  .ng-hide {
+    display: none!important;
+  }
+  [ng-cloak] {
+    display: none !important;
+  }
+  </style>
+  <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+  <link href="vendor/toastr/toastr.min.css" rel="stylesheet" />
+  <link href="css/app.css" rel="stylesheet" />
+  <script src="vendor/headjs/dist/1.0.0/head.load.min.js"></script>
+  <script src="boot.js"></script>
+</head>
+
+<body ng-controller="BodyCtrl" ng-class="{'body-login': !isLogin()}">
+  <div class="container">
+    <header ng-show="isLogin()" class="app-header" ng-include="'app/layouts/topbar/topbar.html'" ng-controller="TopbarCtrl"></header>
+    <nav class="leftnav" ng-controller="LeftNavCtrl" ng-show="isLogin()" ng-cloak ng-include="'app/layouts/leftnav/leftnav.html'">
+    </nav>
+    <div class="main-content" ui-view></div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+
+.app-header{
+	line-height: $headerHeight;
+	background: #1f262d;
+	color: #fff;
+	margin: 0;
+	padding-left: 33px;
+}
+.app-header .title{
+  height: $headerHeight;
+  padding: 15px 0;
+  width: 124px;
+	font-size: 24px;
+	line-height: $headerHeight;
+  margin: 0;
+  background: url(../assets/images/logo.png) no-repeat left center;
+  background-size: 124px;
+  a {
+    display: block;
+    height: 30px;
+
+  }
+}
+.login-user{
+	float: right;
+  color: #666;
+  margin-right: 35px;
+}
+.log-out-btn{
+  display: inline-block;
+  width: 80px;
+  color: #666;
+
+  i{
+    display: inline-block;
+    width: 24px;
+    height: 26px;
+    background: url(../assets/images/nav_pic.png) no-repeat 6px -278px;
+    position: relative;
+    top: 3px;
+  }
+
+  &:hover{
+    color: white;
+    background:#000;
+    i{
+    background: url(../assets/images/nav_pic.png) no-repeat -24px -278px;
+    }
+  }
+}
+.feedback-btn{
+  display: inline-block;
+  width: 120px;
+  color: #666;
+  //margin-right: 16px;
+  i{
+    margin: 0 10px 0 16px;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background: url(../assets/images/feedback-icon.png) no-repeat center;
+    position: relative;
+    top: 3px;
+  }
+
+  &:hover{
+    color: white;
+    background:#000;
+    i{
+    background: url(../assets/images/feedback-icon-hover.png) no-repeat center;
+    }
+  }
+}

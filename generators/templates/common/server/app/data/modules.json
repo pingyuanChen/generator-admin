@@ -1,0 +1,48 @@
+{
+    "status": 0,
+    "msg": "",
+    "data": {
+        "modules": [
+            {
+                "modules": [
+                    {
+                        "modules": [],
+                        "name": "Edit"
+                    }
+                ],
+                "name": "Bookmarks"
+            },
+            {
+                "modules": [
+                    {
+                        "modules": [],
+                        "name": "Search"
+                    },
+                    {
+                        "modules": [],
+                        "name": "SpeedDial"
+                    }
+                ],
+                "name": "Home"
+            },
+            {
+                "modules": [
+                    {
+                        "modules": [],
+                        "name": "Add-on"
+                    }
+                ],
+                "name": "ControlPanel"
+            },
+            {
+                "modules": [
+                    {
+                        "modules": [],
+                        "name": "Edit"
+                    }
+                ],
+                "name": "Bookmark"
+            }
+        ]
+    }
+}

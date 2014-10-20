@@ -1,0 +1,8 @@
+{
+  "status": 0,
+  "msg": "export success",
+  "data": {
+    "qrcode_pic": "/admin/download?type=qrcode&file=qrcode_pic_53c8868abc3dca7a7e9450df.jpg&appname=mobi.mgeek.TunnyBrowser&appversion=11.1.7",
+    "download_link": "/admin/download?type=apk&file=apk_53c8868abc3dca7a7e9450df_withsign.apk&appname=mobi.mgeek.TunnyBrowser&appversion=11.1.7"
+  }
+}

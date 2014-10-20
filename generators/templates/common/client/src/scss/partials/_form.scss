@@ -1,0 +1,149 @@
+select{
+  min-width: 100px;
+  line-height: 30px;
+  height: 30px;
+  margin-right: 20px;
+  outline-color: #28B779;
+  border-color: $borderColor;
+}
+.form-group:after{
+  display: block;
+  content: '';
+  clear: both;
+}
+.col-sm-6 select{
+  width: 100%;
+  height: 33px;
+  border-color: #d0d0d0;
+}
+.control-label{
+  line-height: 33px;
+  font-weight: normal;
+  text-align: right;
+}
+.form-horizontal .control-label{
+  margin-bottom: 10px;
+  padding-top: 0;
+}
+
+[contenteditable]{
+  height: 100%;
+}
+.ng-dirty{
+  border: 1px solid #FF8244;
+}
+.form-control:focus{
+  border-color: $btnColor;
+}
+.col-sm-6 .input{
+  width: 100%;
+}
+.form-input-text{
+  vertical-align: 10px;
+  padding: 0 10px 0 2px;
+}
+.form-group{
+  input[type=radio]{
+    width: 16px;
+  }
+  .input-group .dropdown-menu{
+    left: initial;
+    right: 0;
+  }
+}
+
+/* Widgets */
+.widget-box {
+  background: none repeat scroll 0 0 #F9F9F9;
+  border-left: 1px solid #CDCDCD;
+  border-top: 1px solid #CDCDCD;
+  border-right: 1px solid #CDCDCD;
+  clear: both;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  position: relative;
+}
+.widget-box.widget-calendar, .widget-box.widget-chat {
+  overflow:hidden !important;
+}
+.accordion .widget-box {
+  margin-top: -2px;
+  margin-bottom: 0;
+  border-radius: 0;
+}
+.widget-box.widget-plain {
+  background: transparent;
+  border: none;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.widget-title, .modal-header, .table th, div.dataTables_wrapper .ui-widget-header {
+   background:#efefef;
+  border-bottom: 1px solid #CDCDCD;
+  height: 36px;  
+}
+.widget-title .nav-tabs {
+  border-bottom: 0 none; 
+}
+.widget-title .nav-tabs li a {
+  border-bottom: medium none !important;
+  border-left: 1px solid #DDDDDD;
+    border-radius: 0 0 0 0;
+  border-right: 1px solid #DDDDDD;
+  border-top: medium none;
+  color: #999999;
+  margin: 0;
+  outline: medium none;
+  padding: 9px 10px 8px;
+  font-weight: bold; 
+  text-shadow: 0 1px 0 #FFFFFF;
+}
+.widget-title .nav-tabs li:first-child a {
+  border-left: medium none !important;
+}
+.widget-title .nav-tabs li a:hover {
+  background-color: transparent !important;
+  border-color: #D6D6D6;
+  border-width: 0 1px;
+  color: #2b2b2b;
+}
+.widget-title .nav-tabs li.active a {
+  background-color: #F9F9F9 !important;
+  color: #444444;
+}
+.widget-title span.icon {
+  padding: 9px 10px 7px 11px;
+  float: left; border-right:1px solid #dadada;
+}
+.widget-title h5 {
+  color: #666;
+  float: left;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px;
+  line-height: 12px;
+  margin: 0;
+}
+.widget-title .buttons {
+  float: right;
+  margin: 8px 10px 0 0;
+}
+.widget-title .label {
+  padding: 3px 5px 2px;
+  float: right;
+  margin: 9px 11px 0 0;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3) inset, 0 1px 0 #ffffff;
+}
+.widget-calendar .widget-title .label {
+  margin-right: 190px;
+}
+.widget-content {
+  padding:15px;
+  border-bottom: 1px solid #cdcdcd;
+}
+.widget-box.widget-plain .widget-content {
+  padding: 12px 0 0;
+}
+.widget-box.collapsible .collapse.in .widget-content {
+  border-bottom: 1px solid #CDCDCD;
+}

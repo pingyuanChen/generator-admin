@@ -1,0 +1,21 @@
+<div class="login login-section">
+    <div class="login-content" >
+        <div class="section-title">
+            <h3 class="login-logo"></h3>
+            <div class="login_messsage" ng-show="hasError">
+                {{errorMessage}}
+            </div>
+        </div>
+
+        <form ng-submit="submit();" name="login">
+            <input type="username" ng-model="credentials.username" ng-focus placeholder="Username" required="true" class="form-control login-input">
+            <span class="field_msg"></span>
+
+
+            <input type="password" ng-model="credentials.password" ng-focus  class="form-control login-input" required="true" placeholder="Password" >
+            <span class="field_msg"></span>
+
+            <button type="submit" class="btn btn-success login-btn">Login &nbsp;</button>
+        </form>
+    </div>
+</div>

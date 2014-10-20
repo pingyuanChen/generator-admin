@@ -1,0 +1,64 @@
+<div class="form-wrap">
+  <div class="form-content">
+    <form class="edit-form">
+      <% var fieldsetsIndex = 0
+        _.forIn(fieldsets, function(value, key){ 
+          fieldsetsIndex += 1 %>
+        <div class="widget-box">
+          <div class="widget-title" ng-click="isCollapse<%= fieldsetsIndex %> = !isCollapse<%= fieldsetsIndex %>">
+            <span class="icon"><i class="glyphicon glyphicon-align-justify"></i></span>
+            <h5><%= key %></h5>
+          </div>
+          <div collapse="isCollapse<%= fieldsetsIndex %>">
+            <div class="widget-content">
+            <% _.forEach(value, function(item){
+              var column = modelColumnObj[item];
+              var displayType = (column && column.display_as) || ''; %>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label"><%= column.alias %>: </label>
+                  <div class="col-sm-6">
+                  <% if(displayType == 'input'){ %>
+                    <input type="text" class="form-control" ng-model="entity.<%= column.name %>">
+                  <% }else if(displayType == 'select'){ %>
+                    <select ng-model="entity.<%= column.name %>">
+                    <% _.forEach(column.display_data, function(selectItem){ %>
+                      <option value="<%= selectItem.value %>"><%= selectItem.option %></option>
+                    <% }) %>
+                    </select>
+                  <% }else if(displayType == 'radio'){ %>
+                    <% _.forEach(column.display_data, function(display_data_item){ %>
+                      <label><input type="radio" ng-model="entity.<%= column.name %>" value="<%= display_data_item.value %>"><span class="form-input-text"><%= display_data_item.option %></span></label>
+                    <% }); %>
+                  <% }else if(displayType == 'datetime'){ %>
+                    <p class="input-group">
+                      <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="entity.<%= column.name %>" is-open="<%= column.name %>Opened" min-date="'<%= column.rules.start %>'" max-date="'<%= column.rules.end %>'" show-button-bar="false" disabled="true" />
+                      <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open($event, '<%= column.name %>Opened')"><i class="glyphicon glyphicon-calendar"></i></button>
+                      </span>
+                    </p>
+                  <% }else if(displayType == 'checkbox'){ 
+                    var dataOrigin = column.display_data.toString(); %>
+                    <input type="hidden" class="checkbox-type" ng-model="entity.<%= column.name %>" data-checkbox="<%= dataOrigin %>" data-column="<%= column.name %>">
+                    <% var checkboxIndex = 0;
+                      _.forEach(column.display_data, function(display_data_item){
+                      checkboxIndex += 1 %>
+                      <label><input type="checkbox" ng-model="checkbox.<%= column.name %><%= checkboxIndex %>" ng-change="change('<%= column.name %>', '<%= column.name %><%= checkboxIndex %>', '<%= display_data_item %>')"><span class="form-input-text"><%= display_data_item %></span></label>
+                    <% }); %>
+                  <% }else if(displayType == 'single-checkbox'){ %>
+                    <label><input type="checkbox" ng-model="entity.<%= column.name %>"><span class="form-input-text"><%= column.display_data %></span></label>
+                  <% } %>
+                  </div>
+                </div>
+            <% }); %>
+            </div>
+          </div>
+        </div>
+        <% }); %>
+    </form>
+  </div>
+  <div class="form-btn-wrap">
+    <button class="btn btn-success right" ng-click="save()">Save</button>
+    <button class="btn btn-default right" ng-click="saveAndContinueEdit()">Save and Continue Editing</button>
+    <button class="btn btn-default right" ng-click="saveAsNew()">Save as new</button>
+  </div>
+</div>

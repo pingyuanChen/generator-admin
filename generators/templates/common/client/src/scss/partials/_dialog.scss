@@ -1,0 +1,123 @@
+/**reset**/
+.modal-content{
+  border-radius: 0;
+}
+.dialog-cancel{
+  float: right;
+  color: $borderColor;
+}
+.modal-dialog{
+  margin-top: 150px;
+}
+.export-dialog.loading-container {
+    position: relative;
+    min-height: 200px;
+}
+.export-dialog.loading-container .loading-layer:before, .export-dialog.loading-container .loading-layer:after {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    min-height: 50px;
+    min-width: 50px;
+}
+.export-dialog.loading-container .loading-layer:before {
+    background-color: white;
+    background-image: url('../assets/images/loading.gif');
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.5;
+}
+.export-dialog{
+  text-align: center;
+  padding-top: 33px;
+}
+.export-apk-dialog-text{
+  font-size: 1.2em;
+}
+.export-apk-dialog-img img{
+  max-width:200px;
+}
+
+.form-module-select{
+  .btn{
+    margin:0;
+  }
+  .btn, input {
+    border-radius:0;
+  }
+}
+/**dialog**/
+.btn.create-trans-btn{
+  float: right;
+  margin: 0;
+}
+.modal-title {
+  font-size: 16px;
+  color: $fontColor;
+  font-weight: bold;
+}
+
+.modal-header {
+  padding: 11px;
+  background: #efefef;
+}
+.tree-row{
+  border-color:$borderColor;
+}
+
+.modal-footer {
+  background: #efefef;
+  padding: 18px;
+  button{
+    &:nth-child(1){
+      @include buttonStyle(wButton);
+    }
+    &:nth-child(2){
+      @include buttonStyle(bButton);
+    }
+  }
+}
+
+.form-horizontal button{
+    @include buttonStyle(bButton);
+}
+
+.autofill{
+  //width: 18px;
+  position:relative;
+  margin: 9px 0 9px 190px;
+  line-height: 15px;
+  input{
+    height: 15px;
+    vertical-align: top;
+  }
+}
+.lang-tip{
+  margin:-6px 0 0 198px;
+  color:red;
+}
+.translation_help{
+  width:20px;
+  height:15px;
+  margin-left:8px;
+}
+.translation_help img{
+  height:14px;
+}
+.translation_pic{
+  display: none;
+}
+.translation_help:hover+.translation_pic {
+  display: block;
+  position:absolute;
+  left: -135px;
+  top: -260px;
+  height:260px;
+}
+.form-horizontal>hr {
+  margin:20px 0 30px;
+}

@@ -1,0 +1,32 @@
+{
+  "name": "Dolphin Admin Lib",
+  "version": "1.0",
+  "authors": [
+    "pychen <pychen@bainainfo.com>"
+  ],
+  "description": "It contains third party dependencies",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ],
+  "dependencies": {
+    "angular": "~1.2.21",
+    "requirejs": "~2.1.14",
+    "angular-ui-router": "~0.2.10",
+    "requirejs-domready": "~2.0.1",
+    "bootstrap": "~3.2.0",
+    "headjs": "~1.0.3",
+    "underscore": "~1.6.0",
+    "ng-table": "~0.3.3",
+    "toastr": "~2.0.3",
+    "angular-sanitize": "~1.2.21",
+    "requirejs-text": "~2.0.12",
+    "font-awesome": "~4.1.0",
+    "angular-bootstrap": "~0.11.0",
+    "highcharts-release": "3.0.10"
+  }
+}

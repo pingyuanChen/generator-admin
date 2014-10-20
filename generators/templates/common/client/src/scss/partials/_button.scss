@@ -1,0 +1,38 @@
+a:hover{
+  cursor: pointer;
+}
+.btn-group .btn{
+  margin: 0;
+}
+.btn.search-btn{
+  &:hover, &:active{
+    i{
+      color: #fff;
+    }
+  }
+}
+
+.btn-default{
+  color: #666;
+}
+.btn-success{
+  background-color: $btnColor;
+}
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active{
+  background-color: $btnColor;
+  border-color: #4cae4c;
+  color: #fff;
+}
+.btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .open>.dropdown-toggle.btn-success{
+  background-color: #18a367;
+}
+
+//dialog close btn style
+// .glyphicon.glyphicon-remove:hover{
+//   color: #2a6496;
+// }
+.glyphicon-remove{
+  &:hover{
+    color: $btnColor;
+  }
+}

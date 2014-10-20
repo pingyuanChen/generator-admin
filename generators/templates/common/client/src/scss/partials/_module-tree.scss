@@ -1,0 +1,87 @@
+.module-select-tree {
+  border: 1px solid $borderColor;
+  margin-top: 20px;
+  padding: 0 0 20px 0;
+  max-height: 400px;
+  min-height: 200px;
+  overflow: auto;
+  cc-tree {
+    font-size: 13px;
+    color: #555;
+  }
+  cc-tree li {
+    position: relative;
+    padding: 0 0 0 20px;
+    line-height: 20px;
+  }
+  cc-tree li .tree-label {
+    display: inline;
+  }
+  cc-tree .tree-expanded .tree-leaf-head, cc-tree .tree-collapsed i.tree-leaf-head {
+    display: none;
+  }
+  cc-tree .tree-expanded .tree-branch-head, cc-tree .tree-collapsed .tree-branch-head {
+    display: inline;
+  }
+  cc-tree .tree-leaf .tree-branch-head {
+    display: none;
+  }
+  cc-tree .tree-leaf .tree-leaf-head {
+    display: inline;
+  }
+  cc-tree .tree-expanded .tree-branch-head:before {
+    @extend %icon-font;
+    padding: 1px 5px;
+    // background: url("../assets/images/tree-node-opened.png") no-repeat;
+    @include icon-content(caret-down);
+  }
+  cc-tree .tree-collapsed .tree-branch-head:before {
+    @extend %icon-font;
+    padding: 1px 5px;
+    // background: url("../assets/images/tree-node-closed.png") no-repeat;
+    @include icon-content(caret-right);
+  }
+  cc-tree .tree-leaf i {
+    padding: 1px 10px;
+    width: 16px;
+    height: 16px;
+    background: none no-repeat;
+  }
+  cc-tree li .tree-selected {
+    font-weight: bold;
+  }
+  .tree-first-level {
+    padding: 0;
+    >.tree-row {
+      height: 35px;
+      line-height: 35px;
+      border-bottom: 1px solid $borderColor;
+      margin-bottom: 20px;
+      background-color: #f7f7f7;
+      >.tree-branch-head {
+        text-align: center;
+        display: block;
+        float: left;
+        height: 34px;
+        width: 34px;
+        border-right: 1px solid $borderColor;
+      }
+      >.tree-label {
+        margin-left: 15px;
+      }
+    }
+  }
+}
+.module-selected {
+  display: inline-block;
+  margin-left: 2px;
+  padding: 7px 10px;
+  background: #f3f3f3;
+  .glyphicon {
+    margin-left: 10px;
+    top: 2px;
+  }
+  .fa-angle-right {
+    margin: 0 2px;
+  }
+}

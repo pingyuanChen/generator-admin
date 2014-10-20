@@ -1,0 +1,26 @@
+
+$white: #fff;
+$grey: #e6e6e6;
+
+// Gradient Backgrounds
+// @include bg-gradient-horizontal(COLOR, COLOR)
+@mixin bg-gradient-horizontal($from-color: $white, $to-color: $grey) {
+	background-color: mix($from-color, $to-color);
+	background-image: -webkit-gradient(linear, 0 0, 100% 0, from($from-color), to($to-color));
+	background-image: -webkit-linear-gradient(left, $from-color, $to-color);
+	background-image: -moz-linear-gradient(left, $from-color, $to-color);
+	background-image: -ms-linear-gradient(left, $from-color, $to-color);
+	background-image: -o-linear-gradient(left, $from-color, $to-color);
+	background-image: linear-gradient(left, $from-color, $to-color);
+}
+
+// @include bg-gradient-vertical(COLOR, COLOR)
+@mixin bg-gradient-vertical($from-color: $white, $to-color: $grey) {
+	background-color: mix($from-color, $to-color);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from($from-color), to($to-color));
+	background-image: -webkit-linear-gradient(top, $from-color, $to-color);
+	background-image: -moz-linear-gradient(top, $from-color, $to-color);
+	background-image: -ms-linear-gradient(top, $from-color, $to-color);
+	background-image: -o-linear-gradient(top, $from-color, $to-color);
+	background-image: linear-gradient(top, $from-color, $to-color);
+}

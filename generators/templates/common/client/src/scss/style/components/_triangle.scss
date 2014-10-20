@@ -1,0 +1,32 @@
+
+//the including selector's display must be block and inline-block, if not, width and height not working
+@mixin triangle($width: 40px, $height: 40px, $bg-color: #e4234d, $position: left top) {
+	$width: unquote($width);
+	$height: unquote($height);
+	$bg-color: unquote($bg-color);
+	$position: unquote($position);
+	$end-position: right bottom;
+
+	width: $width;
+	height: $height;
+	@if($position == left top or $position == top left){
+		$end-position: right bottom;
+	}
+	@else if($position == right top or $position == top right){
+		$end-position: left bottom;
+	}
+	background-image: -webkit-gradient(linear, $position, $end-position,from($bg-color),to(transparent),color-stop(0.5,$bg-color),color-stop(0.51,transparent));
+	background-image: -webkit-linear-gradient($position, $bg-color 0%,$bg-color 50%,transparent 51%);
+	background-image: -moz-linear-gradient($position, $bg-color 0%,$bg-color 50%,transparent 51%);
+	background-image: -ms-linear-gradient($position, $bg-color 0%,$bg-color 50%,transparent 51%);
+	background-image: -o-linear-gradient($position, $bg-color 0%,$bg-color 50%,transparent 51%);
+	background-image: linear-gradient($position, $bg-color 0%,$bg-color 50%,transparent 51%);
+}
+
+@mixin top-left-triangle($width: 40px, $height: 40px, $bg-color: #e4234d) {
+	@include triangle($width, $height, $bg-color, left top);
+}
+
+@mixin top-right-triangle($width: 40px, $height: 40px, $bg-color: #e4234d){
+	@include triangle($width, $height, $bg-color, right top);
+}

@@ -1,0 +1,10 @@
+    <cc-tree
+    tree-model="navData"
+    options="treeOptions"
+    on-selection="onSelected(node)"
+    selectable-fn="selectable(node)"
+    selected-node="treeStatus.currentNode"
+    expanded-nodes="treeStatus.expandedNodes"
+    >
+    <span>{{node.display}}</span>
+    </cc-tree>

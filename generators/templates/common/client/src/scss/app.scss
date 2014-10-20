@@ -1,0 +1,82 @@
+@import "style/base/reset";
+@include global-reset();
+
+@import "partials/var";
+@import "partials/button";
+@import "partials/table";
+@import "partials/form";
+@import "partials/dialog";
+@import "partials/icon-font";
+@import "partials/tree";
+@import "partials/module-tree";
+@import "partials/filter";
+@import "partials/progressbar";
+
+@import "partials/header";
+@import "partials/leftnav";
+
+@import "partials/app/login";
+
+
+body, table, .container{
+  margin: 0;
+  padding: 0;
+}
+table{
+  word-wrap:break-word;
+}
+input{
+  height: 30px;
+  line-height: 30px;
+  margin-right: 10px;
+  border-color: $borderColor;
+}
+
+a:hover{
+  text-decoration: none;
+}
+.fa{
+  color: #666;
+}
+.btn{
+  margin-right: 8px;
+  border-radius: 0;
+}
+
+input[type=checkbox]{
+  width: 18px;
+  margin: 0 8px;
+}
+.form-control{
+  border-radius: 0;
+}
+
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
+
+.container{
+  width: 100%;
+  position: absolute;
+  min-height: 100%;
+}
+.main-content{
+  margin-left: $leftnavWidth;
+  padding: 15px 20px;
+}
+
+// add
+body{
+  background: $bgColor;
+  color: $fontColor;
+}
+
+.form-control-feedback{//search button icon
+  top: 2px;
+}
+.search-wrap{
+  width: 290px;
+}
