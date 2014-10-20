@@ -1,95 +1,157 @@
 # CRUD Admin Generator
 
-> Yeoman generator for AngularJS - lets you quickly set up a project with sensible defaults and best practices.
+> Adding CRUD functionality to an angular site by Yeoman generator.
 
 
 ## Getting Started
 
-### Install Yeoman
+Install Yeoman
 
-```bash
+```
 $ npm install -g yo
 ```
 
-## Angular Fullstack CRUD
+Install 'generator-admin'
 
-To install generator-admin from npm, run:
-
-```bash
+```
 $ npm install -g generator-admin
 ```
 
-Next, ensure you have a (mostly?) blank version of an angular-fullstack site.  For best results, execute the generator against a completely fresh/new angular-fullstack site.
-
-This can be accomplished by creating a new directory, and generating:
-
-```bash
-$ yo angular-fullstack
+Make a new directory, and `cd` into it:
+```
+mkdir my-new-project
+cd my-new-project
 ```
 
-Next, create a config.json file to drive the crud generation.  The admin generator comes with an example file, config.json.  The only update required within this example is to correctly set the 'appName' property to whateve your angular-fullstack application is named.  Here is an example of what this config might look like:
+Next, add a global config file(config.json) to generate the basic framework. Here is an example of what this global config might look like:
 
 ```json
 {
-    "clean": true,
-    "appName": "SampleApp",
-    "globalModel":
+  "appName": "SampleApp", //project name
+  "defaultState": "videos.movie", //jump this default url when log in successfull
+  "defaultEnv": "development",
+  "releaseBaseUrl": "/admin",
+  "releaseDomain": "http://172.16.77.30",
+  "developmentBaseUrl": "/admin",
+  "developmentDomain": "http://localhost:8008"
+}
+```
+Then, add config directory(config\*.json) for all model config, like config\video.json:
+```json
+{
+  "moduleName": "videos",
+  "modelName": "movie",
+  "items": [
     {
-        "name": "String",
-        "creation_datetime": "Date"
+      "name": "title",
+      "alias": "视频名称",
+      "display_as": "input",
+      "rules": 100
     },
-    "entities": [
+    {
+      "name": "source",
+      "alias": "视频来源",
+      "display_as": "select",
+      "display_data": [
         {
-            "name": "reservation",
-            "model": {
-                "headcount": "Number",
-                "reservation_datetime": "Date",
-                "guest_id": "ManualReference"
-            }
+          "option": "土豆",
+          "value": "土豆"
         },
         {
-            "name": "table",
-            "model": {
-                "capacity": "Number"
-            }
+          "option": "爱奇艺",
+          "value": "爱奇艺"
         },
         {
-            "name": "server",
-            "model": {
-                "name": "String",
-                "table": "MongooseReference:Table"
-            }
+          "option": "搜狐",
+          "value": "搜狐"
         },
         {
-            "name": "guest",
-            "model": {
-                "favorite_meal": "String"
-            }
+          "option": "乐视",
+          "value": "乐视"
         }
-    ]
+      ]
+    },
+    {
+      "name": "status",
+      "alias": "发布状态",
+      "display_as": "radio",
+      "display_data": [
+        {
+          "option": "发布",
+          "value": "发布"
+        },
+        {
+          "option": "未发布",
+          "value": "未发布"
+        }
+      ]
+    },
+    {
+      "name": "director",
+      "alias": "演员",
+      "display_as": "input",
+      "rules": 100
+    },
+    {
+      "name": "type",
+      "alias": "视频类型",
+      "display_as": "checkbox",
+      "display_data": ["冒险", "爱情", "悬疑"]
+    },
+    {
+      "name": "is_hot",
+      "alias": "视频类型",
+      "display_as": "single-checkbox",
+      "display_data": "是否推荐"
+    },
+    {
+      "name": "preview",
+      "alias": "视频预览",
+      "display_as": "image",
+      "display_data": "xxx.jpg",
+      "rules": "200k"
+    },
+    {
+      "name": "release_time",
+      "alias": "上映时间",
+      "display_as": "datetime",
+      "rules": {
+        "start": "2013-02-01",
+        "end": "2015-02-01"
+      }
+    }
+  ],
+  "ordering": ["release_time"],
+  "list_filter_type": "cascade-dropdown",
+  "list_display": ["title", "source", "status", "type", "director", "release_time"],
+  "list_display_link": ["title"],
+  "list_editable": ["director"],
+  "list_per_page": 10,
+  "search_field": ["title"],
+  "fieldsets": {
+    "基础选项": ["title", "source", "status", "type", "release_time", "is_hot"],
+    "高级选项": ["type", "status"]
+  },
+  "list_actions": ["add", "save"]
 }
 ```
 
-
-Copy that into the root of your new angular-fullstack site, and run the following:
-
-```bash
-$ yo admin
+Run `yo admin`:
+```
+yo admin
 ```
 
-Using the values found in the config file, the generator will add views, controllers, models, etc to add the configured CRUD objects to your application.  There are certain blocks of code that need to be injected into existing files (for example, the routes file).  There are two ways the admin generator can accomplish this:
+Using the values found in the config file, the generator will add views, controllers, models, etc to add the CRUD functionality for your application.  There are certain blocks of code that need to be injected into existing files (for example, the routes, the module, etc).  There are two steps the admin generator can accomplish this:
 
-* If being executed for the first time, it will look for certain code signatures in the newly generated angular-fullstack site, and inject there.  It will also leave "markers" that it uses for subsequent generation.
+* If being executed for the first time, it will be generated by its template.  It will also leave "markers" that it uses for subsequent generation.
 
 * If being executed again against a site, it will rely on the "markers" to know where to inject code.  The markers will look something like this:
 
 ```js
-    // ROUTE INCLUDES BEGIN
-    // ROUTE INCLUDES END
+    /*add state to here*/
+    /*invoke*/
+    /*ngDeps*/
 ```
 
-This process is a little fragile, and will work incorrectly if the existing angular-fullstack code looks differently than what the generator expects.  For best results, use the "marker" paradigm, and code will always be injected into the correct place.
+This process is a little fragile, and will work incorrectly if the existing code looks differently than what the generator expects.  For best results, use the "marker" paradigm, and code will always be injected into the correct place.
 
-## License
-
-MIT
