@@ -1,10 +1,10 @@
 {
   "name": "generator-admin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Yeoman generator to add CRUD functionality to an angular site",
-  "license": "MIT",
+  "license": "",
   "main": "generators/app/index.js",
-  "repository": "",
+  "repository": "https://github.com/pingyuanChen/generator-admin.git",
   "author": "pychen",
   "engines": {
     "node": ">=0.10.0"
