@@ -27,7 +27,7 @@ Generator.prototype.askForAppConfig = function askForAppConfig() {
   var prompts = [{
     name: 'configFile',
     message: 'Configuration file',
-    default: 'generators/config.json'
+    default: 'config.json'
   }];
 
   this.prompt(prompts, function(props) {
@@ -40,15 +40,16 @@ Generator.prototype.askForAppConfig = function askForAppConfig() {
 Generator.prototype.createModel = function createModel() {
   debugger;
   var _this = this,
+    cmdDir = process.cwd(),
     appDir,
-    modelConfigPath = path.join(__dirname, '../config'),
+    modelConfigPath = path.join(cmdDir, './config'),
     templatesDir = path.join(__dirname, '../templates');
 
     this.config = JSON.parse(this.readFileAsString(path.join(this.configFile)));
     //全局app相关配置
     _.extend(this, this.config);
     this.capitalAppName = _.capitalize(_.humanize(this.appName));
-    appDir = path.join(__dirname, '../../'+this.appName);
+    appDir = path.join(cmdDir, './'+this.appName);
 
   //配置模板路径
   _this.sourceRoot(path.join(__dirname, '../templates'));
@@ -62,9 +63,10 @@ Generator.prototype.createModel = function createModel() {
 
 Generator.prototype.injectToModule = function injectToModule() {
   var _this = this,
-    modelConfigPath = path.join(__dirname, '../config'),
+    cmdDir = process.cwd(),
+    modelConfigPath = path.join(cmdDir, './config'),
     templatesDir = path.join(__dirname, '../templates'),
-    appDir = path.join(__dirname, '../../'+this.appName);
+    appDir = path.join(cmdDir, './'+this.appName);
 
   this.conflicter.resolve(function (err) {
     var modelConfig = JSON.parse(_this.readFileAsString(path.join(modelConfigPath, _this.modelName+'.json')));

@@ -26,7 +26,7 @@ Generator.prototype.askForAppConfig = function askForAppConfig() {
   var prompts = [{
     name: 'configFile',
     message: 'Configuration file',
-    default: 'generators/config.json'
+    default: 'config.json'
   }];
 
   this.prompt(prompts, function(props) {
@@ -39,14 +39,15 @@ Generator.prototype.askForAppConfig = function askForAppConfig() {
 Generator.prototype.createCommon = function createCommon() {
   debugger;
   var _this = this,
-    appDir;
+    appDir,
+    cmdDir = process.cwd();
 
-  this.config = JSON.parse(this.readFileAsString(path.join(this.configFile)));
+  this.config = JSON.parse(this.readFileAsString(path.join(cmdDir, this.configFile)));
 
   //全局app相关配置
   _.extend(this, this.config);
   this.capitalAppName = _.capitalize(_.humanize(this.appName));
-  appDir = path.join(__dirname, '../../'+this.appName);
+  appDir = path.join(cmdDir, './'+this.appName);
 
   this.mkdir(appDir);//生成项目目录
   fileUtil.copyDirectory(path.join(__dirname, '../templates/common'), appDir);//拷贝admin的核心框架
@@ -61,9 +62,10 @@ Generator.prototype.createCommon = function createCommon() {
 Generator.prototype.createModel = function createModel() {
   debugger;
   var _this = this,
-    modelConfigPath = path.join(__dirname, '../config'),
+    cmdDir = process.cwd(),
+    modelConfigPath = path.join(cmdDir, './config'),
     templatesDir = path.join(__dirname, '../templates'),
-    appDir = path.join(__dirname, '../../'+this.appName),
+    appDir = path.join(cmdDir, './'+this.appName),
     modelList = fileUtil.getFilesInDirectory(modelConfigPath);//读取所有model的配置文件
 
 
@@ -81,9 +83,10 @@ Generator.prototype.createModel = function createModel() {
 
 Generator.prototype.injectToModule = function injectToModule() {
   var _this = this,
-    modelConfigPath = path.join(__dirname, '../config'),
+    cmdDir = process.cwd(),
+    modelConfigPath = path.join(cmdDir, './config'),
     templatesDir = path.join(__dirname, '../templates'),
-    appDir = path.join(__dirname, '../../'+this.appName),
+    appDir = path.join(cmdDir, './'+this.appName),
     modelList = fileUtil.getFilesInDirectory(modelConfigPath);//读取所有model的配置文件
 
   this.conflicter.resolve(function (err) {
