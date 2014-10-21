@@ -29,9 +29,6 @@ select{
 [contenteditable]{
   height: 100%;
 }
-.ng-dirty{
-  border: 1px solid #FF8244;
-}
 .form-control:focus{
   border-color: $btnColor;
 }

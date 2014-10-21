@@ -254,9 +254,9 @@ define(function() {
             }
           });
         }
-        if (scope.options.equality(scope.node, scope.selectedNode)) {
-          scope.selectNodeLabel(scope.node);
-        }
+        // if (scope.options.equality(scope.node, scope.selectedNode)) {
+        //   scope.selectNodeLabel(scope.node);
+        // }
         // create a scope for the transclusion, whos parent is the parent of the tree control
         scope.transcludeScope = scope.parentScopeOfTree.$new();
         scope.transcludeScope.node = scope.node;

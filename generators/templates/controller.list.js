@@ -30,7 +30,9 @@ define(['common/utils/dataConverter'], function(dataConverter) {
         logger.warning('Please select a content!');
         return;
       }
-      save(checked);
+      save(checked, function(){
+        
+      });
     };
     function save(items, callback){
       DS.add(items)

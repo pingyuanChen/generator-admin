@@ -16,29 +16,29 @@ module.exports = function(grunt) {
    */
   var userConfig = {
     buildDir: './build',
-    srcDir: './www',
+    srcDir: './src',
     vendorFiles: {
       js: [
-        "lib/headjs/dist/1.0.0/head.load.min.js",
-        "lib/jquery/dist/jquery.min.js",
-        "lib/angular/angular.min.js",
-        "lib/angular-sanitize/angular-sanitize.min.js",
-        "lib/angular-ui-router/release/angular-ui-router.min.js",
-        "lib/angular-bootstrap/ui-bootstrap-tpls.min.js",
-        "lib/ng-table/ng-table.min.js",
-        "lib/toastr/toastr.min.js",
-        "lib/requirejs/require.js",
-        "lib/underscore/underscore.js",
-        "lib/highcharts-release/highcharts.js",
-        "lib/requirejs-domready/domReady.js",
-        "lib/requirejs-text/text.js"
+        "vendor/headjs/dist/1.0.0/head.load.min.js",
+        "vendor/jquery/dist/jquery.min.js",
+        "vendor/angular/angular.min.js",
+        "vendor/angular-sanitize/angular-sanitize.min.js",
+        "vendor/angular-ui-router/release/angular-ui-router.min.js",
+        "vendor/angular-bootstrap/ui-bootstrap-tpls.min.js",
+        "vendor/ng-table/ng-table.min.js",
+        "vendor/toastr/toastr.min.js",
+        "vendor/requirejs/require.js",
+        "vendor/underscore/underscore.js",
+        "vendor/highcharts-release/highcharts.js",
+        "vendor/requirejs-domready/domReady.js",
+        "vendor/requirejs-text/text.js"
       ],
       css: [
-        "lib/toastr/toastr.min.css",
-        "lib/bootstrap/dist/css/bootstrap.min.css",
-        'lib/bootstrap/dist/fonts/**/*.*',
-        "lib/font-awesome/css/font-awesome.min.css",
-        'lib/font-awesome/fonts/**/*.*'
+        "vendor/toastr/toastr.min.css",
+        "vendor/bootstrap/dist/css/bootstrap.min.css",
+        'vendor/bootstrap/dist/fonts/**/*.*',
+        "vendor/font-awesome/css/font-awesome.min.css",
+        'vendor/font-awesome/fonts/**/*.*'
       ]
     }
   };
@@ -102,12 +102,12 @@ module.exports = function(grunt) {
         }]
       },
       build_dev_config: {
-        src: '<%= srcDir %>/app.config.js',
-        dest: '<%= distDir %>/app.config.js'
+        src: '<%= srcDir %>/app.config.module.js',
+        dest: '<%= distDir %>/app.config.module.js'
       },
       build_release_config: {
-        src: '<%= srcDir %>/app.config.js',
-        dest: '<%= distDir %>/app.config.js',
+        src: '<%= srcDir %>/app.config.module.js',
+        dest: '<%= distDir %>/app.config.module.js',
         options: {
           process: function(content, srcpath){
             return content.replace(/\'ENV\'*\'development\'/i, '"ENV"\, "release"');

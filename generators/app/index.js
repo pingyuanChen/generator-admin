@@ -46,7 +46,7 @@ Generator.prototype.createCommon = function createCommon() {
 
   //全局app相关配置
   _.extend(this, this.config);
-  this.capitalAppName = _.capitalize(_.humanize(this.appName));
+  this.capitalAppName = _.capitalize(_.camelize(this.appName));
   appDir = path.join(cmdDir, './'+this.appName);
 
   this.mkdir(appDir);//生成项目目录

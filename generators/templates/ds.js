@@ -8,13 +8,16 @@ define(['./DataSource'], function(DataSource) {
       });
     },
     add: function(params) {
-      var items = this.data.items,
-        postData = [];
-      params.forEach(function(itemId) {
-        var item = items[itemId];
-        postData.push(item);
-      });
-      params = postData;
+      if(_.isArray(params)){//save action from list page
+        var items = this.data.items,
+          postData = [];
+        items = _.indexBy(items, 'id');
+        params.forEach(function(itemId) {
+          var item = items[itemId];
+          postData.push(item);
+        });
+        params = postData;
+      }
       return this._update(basePath+'/add', {
         data: params
       });

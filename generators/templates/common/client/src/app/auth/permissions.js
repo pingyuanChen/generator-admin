@@ -32,6 +32,9 @@ define(function(){
         function _hasPermissions(permission){
           var modelPermissions = permissionsList[permission.model],
             actions = permission.action;
+          if(!modelPermissions){
+            return true;
+          }
           return _.every(actions, function(item){
             if(modelPermissions){
               return _.contains(modelPermissions.action, item);

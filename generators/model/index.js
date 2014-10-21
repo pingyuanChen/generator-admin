@@ -48,7 +48,7 @@ Generator.prototype.createModel = function createModel() {
     this.config = JSON.parse(this.readFileAsString(path.join(this.configFile)));
     //全局app相关配置
     _.extend(this, this.config);
-    this.capitalAppName = _.capitalize(_.humanize(this.appName));
+    this.capitalAppName = _.capitalize(_.camelize(this.appName));
     appDir = path.join(cmdDir, './'+this.appName);
 
   //配置模板路径

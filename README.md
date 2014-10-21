@@ -155,3 +155,29 @@ Using the values found in the config file, the generator will add views, control
 
 This process is a little fragile, and will work incorrectly if the existing code looks differently than what the generator expects.  For best results, use the "marker" paradigm, and code will always be injected into the correct place.
 
+
+When you see "beautifyJS task done", it means the code is generated completely(demo: https://github.com/pingyuanChen/generator-admin-example).  The project folder may like this:
+ ```js
+    SampleApp/
+      SampleApp/client/
+      SampleApp/server/
+```
+
+'cd' into SampleApp/client/, and run the following command to install the required dependencies:
+```
+$ npm install
+```
+
+'cd' into SampleApp/client/src, and run the following command to install the frontend dependencies:
+```
+$ bower install
+```
+
+At end, run the node server to serve the website, 'cd' into SampleApp/server/:
+```
+$ node server.js
+```
+
+(*^__^*) visite http://localhost:8008/#/login
+
+Make sure you hava complied the sass into css
