@@ -44,7 +44,7 @@ select{
     width: 16px;
   }
   .input-group .dropdown-menu{
-    left: initial;
+    left: initial !important;
     right: 0;
   }
 }

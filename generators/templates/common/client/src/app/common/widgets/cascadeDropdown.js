@@ -21,11 +21,11 @@ define(function(){
           return '<div class="form-group" ng-repeat="itemName in selectName">'+
                     '<label class="col-sm-4 control-label">{{selectLabel[$index]}}</label>'+
                     '<div class="col-sm-6">'+
-                      '<select ng-options="item.value as item.display_value for item in selectedModel[itemName] | filter:{parent:checked[selectName[$index-1]]}:true" ng-model="checked[itemName]" ng-change="updateSub($index+1)"></select>'+
+                      '<select class="form-control" ng-options="item.value as item.display_value for item in selectedModel[itemName] | filter:{parent:checked[selectName[$index-1]]}:true" ng-model="checked[itemName]" ng-change="updateSub($index+1)"></select>'+
                     '</div>'+
                   '</div>';
         }else{
-          return '<select ng-repeat="itemName in selectName" ng-options="item.value as item.display_value for item in selectedModel[itemName] | filter:{parent:checked[selectName[$index-1]]}:true" ng-model="checked[itemName]" ng-change="updateSub($index+1)"></select>';
+          return '<select class="form-control" ng-repeat="itemName in selectName" ng-options="item.value as item.display_value for item in selectedModel[itemName] | filter:{parent:checked[selectName[$index-1]]}:true" ng-model="checked[itemName]" ng-change="updateSub($index+1)"></select>';
         }
       },
       link: function($scope, $element, $attrs){

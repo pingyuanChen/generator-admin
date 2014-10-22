@@ -76,7 +76,13 @@ input[type=checkbox]{
 
 .search-wrap{
   .form-control-feedback{
-    top: 3px;
+    top: 1px;
+    border-left: 1px solid #ddd;
+    line-height: 34px;
+  }
+  .form-control-feedback:hover{
+    background: #5cb85c;
+    color: #fff;
   }
 }
 
