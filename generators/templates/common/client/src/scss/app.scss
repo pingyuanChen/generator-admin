@@ -5,6 +5,7 @@
 @import "partials/button";
 @import "partials/table";
 @import "partials/form";
+@import "partials/list";
 @import "partials/dialog";
 @import "partials/icon-font";
 @import "partials/tree";
@@ -21,6 +22,11 @@
 body, table, .container{
   margin: 0;
   padding: 0;
+}
+// add
+body{
+  background: $bgColor;
+  color: $fontColor;
 }
 table{
   word-wrap:break-word;
@@ -68,15 +74,9 @@ input[type=checkbox]{
   padding: 15px 20px;
 }
 
-// add
-body{
-  background: $bgColor;
-  color: $fontColor;
+.search-wrap{
+  .form-control-feedback{
+    top: 3px;
+  }
 }
 
-.form-control-feedback{//search button icon
-  top: 2px;
-}
-.search-wrap{
-  width: 290px;
-}

@@ -3,9 +3,6 @@
   <% if(!list_actions || _.indexOf(list_actions, 'add') > -1){ %>
     <button class="btn btn-success right" ng-click="add<%= capitalModelName%>()">Add <%= capitalModelName%></button>
   <% } %>
-  <% if(modelEditList.length > 0){ %>
-    <button class="btn btn-default right" ng-click="saveAll()">Save All</button>
-  <% } %>
     <div class="filter-wrap left">
     <% if(list_filter_type=='cascade-dropdown'){ %>
       <cascade-dropdown selected-model="selectOptions" select-name="selectName" on-selected="filter(node, isInit)"></cascade-dropdown>
@@ -15,15 +12,42 @@
     </div>
   <% if(!search_field || search_field!=false){ %>
     <div class="search-wrap left">
-      <button class="btn btn-default right" ng-disabled="isLoading" ng-click="search()">Search</button>
       <div class="form-group">
         <div class="input-group">
           <input class="form-control" type="text" ng-model="search.string">
-          <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-search': !search.string,'glyphicon-remove': search.string}" ng-click="clearSearch()"></span>
+          <span class="glyphicon glyphicon-search form-control-feedback" ng-disabled="isLoading" ng-click="search()"></span>
         </div>
       </div>
     </div>
   <% } %>
+  </div>
+  <div class="list-middle clearfix">
+    <div class="list-middle-left left">
+      <span class="list-total-checked">{{listTotal}}中{{listChecked.length}}被选</span>
+    </div>
+    <div class="list-middle-right">
+    <% if(list_datepicker){ %>
+      <div class="list-datepicker">
+        <div class="date-selected">
+          <span class="input-group date-picker-select">
+            <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="datePicker.start.dt" max-date="datePicker.end.dt" is-open="datePicker.start.opened" show-button-bar="false" ng-required="true"/>
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default" ng-click="open($event, datePicker.start)"> <i class="glyphicon glyphicon-calendar"></i>
+              </button>
+            </span>
+          </span>
+          <label  class="date-picker-text">—</label>
+          <span class="input-group date-picker-select end-date">
+            <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="datePicker.end.dt" min-date="datePicker.start.dt" max-date="datePicker.end.max" is-open="datePicker.end.opened" show-button-bar="false" ng-required="true"/>
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default" ng-click="open($event, datePicker.end)"> <i class="glyphicon glyphicon-calendar"></i>
+              </button>
+            </span>
+          </span>
+        </div>
+      </div>
+    <% } %>
+    </div>
   </div>
   <div class="list-content" cc-loading-layer="!<%=camelModelName%>TableParams.settings().$loading">
     <div ng-show="!<%=camelModelName%>TableParams.settings().$loading && items && !items.length" class="no-data">The list is empty, nothing to do！</div>
@@ -61,6 +85,12 @@
         </tr>
       </tbody>
     </table>
+    <div class="table-footer-btn-wrap left">
+    <% if(modelEditList.length > 0){ %>
+      <button class="btn btn-primary right" ng-click="saveAll()">Save All</button>
+    <% } %>
+    </div>
+    <span class="list-total">共{{listTotal}}条数据</span>
     <script type="text/ng-template" id="ng-table/headers/checkbox.html">
     <input type = "checkbox"
       ng-model = "checkboxes.checked"

@@ -97,12 +97,17 @@ Generator.prototype.injectToModule = function injectToModule() {
       angularUtil.injectToModule(_this, appDir, templatesDir);
     });
     
-    angularUtil.beautifyJS([
-      appDir+'/**/*.js',
-      '!'+appDir+'/client/src/app/common/**/*.js',
-      '!'+appDir+'/client/src/app/server/**/*.js',
-      '!'+appDir+'/client/node_modules/**/*.js'
-    ]);
+    angularUtil.gruntTask(
+      [
+        appDir+'/**/*.js',
+        '!'+appDir+'/client/src/app/common/**/*.js',
+        '!'+appDir+'/client/src/app/server/**/*.js',
+        '!'+appDir+'/client/node_modules/**/*.js'
+      ],
+      [
+        appDir+'/client/src/css/app.css',
+        appDir+'/client/src/scss/app.scss',
+      ]);
   });
 
 };

@@ -36,3 +36,16 @@ a:hover{
     color: $btnColor;
   }
 }
+
+//list page date picker widget
+.list-datepicker{
+  float: right;
+  .date-picker-text {
+    float: left;
+    margin: 6px 12px 6px 6px;
+  }
+  .date-picker-select{
+    float: left;
+    width: 280px;
+  }
+}

@@ -179,5 +179,3 @@ $ node server.js
 ```
 
 (*^__^*) visite http://localhost:8008/#/login
-
-Make sure you hava complied the sass into css
