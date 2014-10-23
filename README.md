@@ -1,7 +1,19 @@
 # CRUD Admin Generator
 
-> Adding CRUD functionality to an angular site by Yeoman generator.
+> generator-admin is a yeoman generator, which allows you to automatically generate basic CRUD functionality based on config.
+This generator is based on previous AngularJS project experience of best practice.
 
+Featues:
+* Provides a directory structure geared towards large Angular projects.
+  * All of model is categorized by module, and each module will be injected into the app module.
+  * Provides basic admin functionality: authention, authorization. Besides, including many common widgets, service.
+
+* Provides grunt build process for code online's distribution
+* Can generate model based on existing project
+
+## Demo
+https://github.com/pingyuanChen/generator-admin-example
+![Demo](https://github.com/pingyuanChen/generator-admin-example/blob/master/demo.png)
 
 ## Getting Started
 
@@ -179,3 +191,19 @@ $ node server.js
 ```
 
 (*^__^*) visite http://localhost:8008/#/login
+
+## Subgenerator
+You can generate model on an existing project.
+in 'my-new-project/config' directory and add model config file, such as tv-play.json.
+
+Then, cd 'my-new-project' and run:
+```
+$ yo admin:model 
+```
+At end, run the node server to serve the website, 'cd' into SampleApp/server/:
+```
+$ node server.js
+```
+visite http://localhost:8008/#/login
+
+## FAQ
