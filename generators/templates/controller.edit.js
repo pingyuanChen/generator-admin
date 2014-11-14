@@ -14,7 +14,9 @@ define([], function() {
     clearForm();
 
     if(isEditState){
-      DS.edit(stateParams.id)
+      DS.edit({
+          'id': stateParams.id
+        })
         .then(function(data){
           $scope.entity = DS.data;
         })
