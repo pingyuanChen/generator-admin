@@ -105,6 +105,13 @@ Then, add config directory(config\*.json) for all model config, like config\vide
       "rules": 100
     },
     {
+      "name": "rules",
+      "module_name": "other",
+      "alias": "规则",
+      "display_as": "inline-reference",
+      "display_data": "rules"
+    },
+    {
       "name": "type",
       "alias": "视频类型",
       "display_as": "checkbox",
@@ -115,6 +122,20 @@ Then, add config directory(config\*.json) for all model config, like config\vide
       "alias": "视频类型",
       "display_as": "single-checkbox",
       "display_data": "是否推荐"
+    },
+    {
+      "name": "categories",
+      "module_name": "novels",
+      "alias": "分类",
+      "display_as": "reference",
+      "display_data": "categories"
+    },
+    {
+      "name": "folders",
+      "module_name": "other",
+      "alias": "文件夹",
+      "display_as": "inline-reference",
+      "display_data": "folders"
     },
     {
       "name": "preview",
@@ -139,10 +160,13 @@ Then, add config directory(config\*.json) for all model config, like config\vide
   "list_display_link": ["title"],
   "list_editable": ["director"],
   "list_per_page": 10,
+  "list_datepicker": "release_time",
   "search_field": ["title"],
   "fieldsets": {
-    "基础选项": ["title", "source", "status", "type", "release_time", "is_hot"],
-    "高级选项": ["type", "status"]
+    "基础选项": ["title", "source", "status", "type", "categories", "release_time", "is_hot"],
+    "高级选项": ["type", "status"],
+    "Rules": ["rules"],
+    "Folder": ["folders"]
   },
   "list_actions": ["add", "save"]
 }
