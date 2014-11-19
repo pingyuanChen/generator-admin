@@ -14,6 +14,7 @@ Featues:
 ## Demo
 https://github.com/pingyuanChen/generator-admin-example
 ![Demo](https://github.com/pingyuanChen/generator-admin-example/blob/master/demo.png)
+![Demo](https://github.com/pingyuanChen/generator-admin-example/blob/master/demo-edit.png)
 
 ## Getting Started
 
