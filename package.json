@@ -1,6 +1,6 @@
 {
   "name": "generator-admin",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Yeoman generator to add CRUD functionality to an angular site",
   "license": "",
   "main": "generators/app/index.js",
