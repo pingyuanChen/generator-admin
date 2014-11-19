@@ -1,7 +1,7 @@
 <div class="list-wrap">
   <div class="list-top clearfix">
   <% if(!list_actions || _.indexOf(list_actions, 'add') > -1){ %>
-    <button class="btn btn-success right" ng-click="add<%= capitalModelName%>()">Add <%= capitalModelName%></button>
+    <button ng-show="!isPopup" class="btn btn-success right" ng-click="add<%= capitalModelName%>()">Add <%= capitalModelName%></button>
   <% } %>
     <div class="filter-wrap left">
     <% if(list_filter_type=='cascade-dropdown'){ %>

@@ -2,16 +2,19 @@ define(['common/utils/date', 'common/utils/dataConverter'], function(dateUtil, d
   var diName = '<%= capitalModelName %>ListCtrl';
   return {
     __register__: function(mod) {
-      mod.controller(diName, ['$scope', '$state', '$filter', 'ngTableParams', 'ds.<%= camelModelName %>', 'logger', 'apiService', 'PER_PAGE', <%= capitalModelName %>ListCtrl]);
+      mod.controller(diName, ['$scope', '$window', '$state', '$filter', '$location', 'ngTableParams', 'ds.<%= camelModelName %>', 'logger', 'apiService', 'PER_PAGE', <%= capitalModelName %>ListCtrl]);
       return mod;
     }
   };
 
-  function <%= capitalModelName %>ListCtrl($scope, $state, $filter, ngTableParams, DS, logger, apiService, PER_PAGE) {
+  function <%= capitalModelName %>ListCtrl($scope, $window, $state, $filter, $location, ngTableParams, DS, logger, apiService, PER_PAGE) {
     var apiParams = {};
     $scope.listChecked = [];
     $scope.listTotal = 0;
 
+    $scope.isPopup = function(){
+      return !!$location.search().popup;
+    };
   <% if(!list_actions || _.indexOf(list_actions, 'add') > -1){ %>
     $scope.add<%= capitalModelName%> = function(){
       $state.go('<%= sluggyModuleName %>.add-<%= sluggyModelName %>');
@@ -19,6 +22,21 @@ define(['common/utils/date', 'common/utils/dataConverter'], function(dateUtil, d
   <% } %>
   <% if(list_display_link){ %>
     $scope.edit = function(item){
+      if($location.search().popup){
+        var windowScope = $window.opener.angular.element('body').scope(),
+          childWindowName = $window.window.name;
+
+        if(childWindowName == 'from-ref'){
+          windowScope.$broadcast('REF_LIST_SELECTED', {
+            id: item.id
+          });
+        }else{
+          windowScope.$broadcast('INLINE_REF_LIST_SELECTED', {
+            id: item.id
+          });
+        }
+        $window.close();
+      }
       $state.go('<%= sluggyModuleName %>.edit-<%= sluggyModelName %>', {id: item.id});
     };
   <% } %>

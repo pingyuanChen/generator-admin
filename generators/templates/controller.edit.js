@@ -2,14 +2,15 @@ define([], function() {
   var diName = '<%= capitalModelName %>EditCtrl';
   return {
     __register__: function(mod) {
-      mod.controller(diName, ['$scope', '$state', '$window', 'ds.<%= camelModelName %>', '$log', <%= capitalModelName %>EditCtrl]);
+      mod.controller(diName, ['$rootScope', '$scope', '$state', '$window', '$location', 'ds.<%= camelModelName %>', '$log', <%= capitalModelName %>EditCtrl]);
       return mod;
     }
   };
 
-  function <%= capitalModelName %>EditCtrl($scope, $state, $window, DS, $log) {
+  function <%= capitalModelName %>EditCtrl($rootScope, $scope, $state, $window, $location, DS, $log) {
     var stateParams = $state.params,
-      isEditState = _.has(stateParams, 'id');
+      isEditState = _.has(stateParams, 'id'),
+      curRefItem, curRefIndex;
 
     clearForm();
 
@@ -78,9 +79,67 @@ define([], function() {
     };
     $scope.format = 'yyyy-MM-dd';
 
+    $scope.popUp = function(pageType, moduleName, modelName, index, editId){
+      var path = '',
+        originUrl = $location.absUrl(),
+        originPath = $location.path();
+      
+      if(pageType == 'list'){
+        path = '/' + moduleName + '/' + modelName;
+        curRefItem = modelName;
+        curRefIndex = index;
+      }else if(pageType == 'add'){
+        path = '/' + moduleName + '/' + modelName + '/add';
+      }else if(pageType == 'edit'){
+        path = '/' + moduleName + '/' + modelName + '/' + editId;
+      }
+      path += '?popup=1';
+      openChildWindow(originUrl.replace(originPath, path), 'from-inline-ref');
+    };
+
+    $scope.popUpList = function(moduleName, modelName){
+      var path = '',
+        originUrl = $location.absUrl(),
+        originPath = $location.path();
+
+      curRefItem = modelName;
+      path = '/' + moduleName + '/' + modelName + '?popup=1';
+      openChildWindow(originUrl.replace(originPath, path), 'from-ref');
+    };
+
+    $scope.$on('INLINE_REF_LIST_SELECTED', function(data, args){
+      curRefIndex = curRefIndex || 0;
+      if(!$scope.entity[curRefItem]){
+        $scope.entity[curRefItem] = [];
+      }
+      if(!$scope.entity[curRefItem][curRefIndex]){
+        $scope.entity[curRefItem][curRefIndex] = {};
+      }
+      $scope.entity[curRefItem][curRefIndex].id = args.id;
+      $scope.$apply();
+    });
+
+    $scope.$on('REF_LIST_SELECTED', function(data, args){
+      $scope.entity[curRefItem] = args.id;
+      $scope.$apply();
+    });
+
     function saveEntity(callback){
+      //pre process the post item: remove the inline reference item to be deleted
+      for(var key in $scope.entity){
+        var item = $scope.entity[key];
+        if(_.isArray(item) && item.length > 0 && _.isObject(item[0])){
+          $scope.entity[key] = _.filter(item, function(filterItem){
+            return !filterItem.isDelete;
+          });
+        }
+      }
+
       return DS.add($scope.entity)
         .then(function(){
+          if($location.search().popup){
+            $window.close();
+          }
           callback && callback();
         }, function(error){
           //save failed
@@ -90,6 +149,13 @@ define([], function() {
     function clearForm(){
       $scope.entity = {};
       $scope.checkbox = {};
+    }
+
+    function openChildWindow(url, windowName){
+      if($rootScope.childWindow){
+        $rootScope.childWindow.close();
+      }
+      $rootScope.childWindow = $window.open(url, windowName, 'width=1000,height=600,resizable=1');
     }
   }
 })

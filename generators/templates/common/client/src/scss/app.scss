@@ -73,6 +73,12 @@ input[type=checkbox]{
   margin-left: $leftnavWidth;
   padding: 15px 20px;
 }
+.popup .main-content{
+  margin-left: 0;
+}
+.popup .leftnav{
+  display: none;
+}
 
 .search-wrap{
   .form-control-feedback{

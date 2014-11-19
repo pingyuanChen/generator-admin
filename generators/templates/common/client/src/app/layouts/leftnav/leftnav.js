@@ -2,12 +2,12 @@ define(['common/utils/tree'], function(TreeUtil) {
   var diName = 'LeftNavCtrl';
   return {
     __register__: function(mod) {
-      mod.controller(diName, ['$rootScope', '$scope', '$state', 'session', LeftNavCtrl]);
+      mod.controller(diName, ['$rootScope', '$scope', '$state', '$location', 'session', LeftNavCtrl]);
       return mod;
     }
   };
 
-  function LeftNavCtrl($rootScope, $scope, $state, session) {
+  function LeftNavCtrl($rootScope, $scope, $state, $location, session) {
     $scope.navData = null;
     $scope.treeStatus = {
       currentNode: null,
@@ -15,6 +15,9 @@ define(['common/utils/tree'], function(TreeUtil) {
     };
 
     $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+      if($location.search().popup){//if url has popup parameter, do not render leftnav
+        return;
+      }
       var state = toState.name.split('.'),
         navData = $scope.navData = session.navData,
         selectedNode;
