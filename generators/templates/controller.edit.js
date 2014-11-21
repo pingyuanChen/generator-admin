@@ -125,6 +125,8 @@ define([], function() {
     });
 
     function saveEntity(callback){
+      var action = isEditState ? 'update' : 'add';
+
       //pre process the post item: remove the inline reference item to be deleted
       for(var key in $scope.entity){
         var item = $scope.entity[key];
@@ -135,7 +137,7 @@ define([], function() {
         }
       }
 
-      return DS.add($scope.entity)
+      return DS[action]($scope.entity)
         .then(function(){
           if($location.search().popup){
             $window.close();

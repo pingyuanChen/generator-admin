@@ -23,6 +23,10 @@ app.use(logger('dev'));
 app.use('/', express.static(path.join(__dirname, '../client/src/')));
 
 router.use(function(req, res, next) {
+  res.set({
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*'
+  });
   console.log('%s %s %s', req.method, req.url, req.path);
   next();
 });

@@ -8,7 +8,19 @@ define(['./DataSource'], function(DataSource) {
       });
     },
     add: function(params) {
-      if(_.isArray(params)){//save action from list page
+      return this._update(basePath+'/add', {
+        data: params
+      });
+    },
+    edit: function(params) {
+      return this._load(basePath+'/edit', {
+        params: params
+      });
+    },
+    update: function(params){
+      if(_.isObject(params)){//update action from edit page
+        params = [params];
+      }else if(_.isArray(params)){//update action from list page
         var items = this.data.items,
           postData = [];
         items = _.indexBy(items, 'id');
@@ -18,13 +30,8 @@ define(['./DataSource'], function(DataSource) {
         });
         params = postData;
       }
-      return this._update(basePath+'/add', {
+      return this._update(basePath+'/update', {
         data: params
-      });
-    },
-    edit: function(params) {
-      return this._load(basePath+'/edit', {
-        params: params
       });
     },
     delete: function(params) {

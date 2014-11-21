@@ -50,11 +50,12 @@ define(['common/utils/date', 'common/utils/dataConverter'], function(dateUtil, d
         return;
       }
       save($scope.listChecked, function(){
-        
+        resetCheckBoxes();
+        logger.success('save successfully!');
       });
     };
     function save(items, callback){
-      DS.add(items)
+      DS.update(items)
         .then(function(){
           callback && callback();
         }, function(error){
@@ -94,12 +95,6 @@ define(['common/utils/date', 'common/utils/dataConverter'], function(dateUtil, d
       $scope.<%= camelModelName %>TableParams.reload();
     };
   <% } %>
-    var resetCheckBoxes = function() {
-      $scope.checkboxes = {
-        'checked': false,
-        items: {}
-      };
-    };
 
   <% if(list_datepicker){ %>
     var _dateFormat = function(date) {
@@ -214,5 +209,12 @@ define(['common/utils/date', 'common/utils/dataConverter'], function(dateUtil, d
       }
       return checked;
     }
+
+    function resetCheckBoxes() {
+      $scope.checkboxes = {
+        'checked': false,
+        items: {}
+      };
+    };
   }
 })
