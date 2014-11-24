@@ -74,8 +74,11 @@ Generator.prototype.createModel = function createModel() {
 
   //读取所有model的配置文件，并生成相应的view、controller...
   modelList.forEach(function(model){
-    var modelConfig = JSON.parse(_this.readFileAsString(path.join(model)));
-
+    try{
+      var modelConfig = JSON.parse(_this.readFileAsString(path.join(model)).trim());
+    }catch(e){
+      console.log('model: '+ model + ', JSON parse error: '+e);
+    }
     _.extend(_this, angularUtil.updateModelConfig(modelConfig));
     angularUtil.createModel(_this, appDir, templatesDir);
   });
@@ -91,7 +94,7 @@ Generator.prototype.injectToModule = function injectToModule() {
 
   this.conflicter.resolve(function (err) {
     modelList.forEach(function(model){
-      var modelConfig = JSON.parse(_this.readFileAsString(path.join(model)));
+      var modelConfig = JSON.parse(_this.readFileAsString(path.join(model)).trim());
 
       _.extend(_this, angularUtil.updateModelConfig(modelConfig));
       angularUtil.injectToModule(_this, appDir, templatesDir);

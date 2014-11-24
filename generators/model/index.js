@@ -45,7 +45,7 @@ Generator.prototype.createModel = function createModel() {
     modelConfigPath = path.join(cmdDir, './config'),
     templatesDir = path.join(__dirname, '../templates');
 
-    this.config = JSON.parse(this.readFileAsString(path.join(this.configFile)));
+    this.config = JSON.parse(this.readFileAsString(path.join(this.configFile)).trim());
     //全局app相关配置
     _.extend(this, this.config);
     this.capitalAppName = _.capitalize(_.camelize(this.appName));
@@ -69,7 +69,7 @@ Generator.prototype.injectToModule = function injectToModule() {
     appDir = path.join(cmdDir, './'+this.appName);
 
   this.conflicter.resolve(function (err) {
-    var modelConfig = JSON.parse(_this.readFileAsString(path.join(modelConfigPath, _this.modelName+'.json')));
+    var modelConfig = JSON.parse(_this.readFileAsString(path.join(modelConfigPath, _this.modelName+'.json')).trim());
 
     _.extend(_this, angularUtil.updateModelConfig(modelConfig));
     angularUtil.injectToModule(_this, appDir, templatesDir);
