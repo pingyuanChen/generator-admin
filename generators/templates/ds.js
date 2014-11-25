@@ -18,9 +18,7 @@ define(['./DataSource'], function(DataSource) {
       });
     },
     update: function(params){
-      if(_.isObject(params)){//update action from edit page
-        params = [params];
-      }else if(_.isArray(params)){//update action from list page
+      if(_.isArray(params)){//update action from list page
         var items = this.data.items,
           postData = [];
         items = _.indexBy(items, 'id');
@@ -29,6 +27,8 @@ define(['./DataSource'], function(DataSource) {
           postData.push(item);
         });
         params = postData;
+      }else{//update action from edit page
+        params = [params];
       }
       return this._update(basePath+'/update', {
         data: params
