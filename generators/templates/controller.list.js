@@ -2,12 +2,12 @@ define(['common/utils/date', 'common/utils/dataConverter'], function(dateUtil, d
   var diName = '<%= capitalModelName %>ListCtrl';
   return {
     __register__: function(mod) {
-      mod.controller(diName, ['$scope', '$window', '$state', '$filter', '$location', 'ngTableParams', 'ds.<%= camelModelName %>', 'logger', 'apiService', 'PER_PAGE', <%= capitalModelName %>ListCtrl]);
+      mod.controller(diName, ['$scope', '$window', '$state', '$filter', '$location', '$modal', 'ngTableParams', 'ds.<%= camelModelName %>', 'logger', 'apiService', 'PER_PAGE', <%= capitalModelName %>ListCtrl]);
       return mod;
     }
   };
 
-  function <%= capitalModelName %>ListCtrl($scope, $window, $state, $filter, $location, ngTableParams, DS, logger, apiService, PER_PAGE) {
+  function <%= capitalModelName %>ListCtrl($scope, $window, $state, $filter, $location, $modal, ngTableParams, DS, logger, apiService, PER_PAGE) {
     var apiParams = {};
     $scope.listChecked = [];
     $scope.listTotal = 0;
@@ -40,9 +40,52 @@ define(['common/utils/date', 'common/utils/dataConverter'], function(dateUtil, d
       $state.go('<%= sluggyModuleName %>.edit-<%= sluggyModelName %>', {id: item.id});
     };
   <% } %>
+  <% if(!list_actions || _.indexOf(list_actions, 'delete') > -1){ %>
+    $scope.delete = function(){
+      var deleteDialog;
+      if($scope.listChecked.length === 0){
+        logger.warning('Please select a content!');
+        return;
+      }
+      deleteDialog = $modal.open({
+        template: '<div class="modal-header">' +
+                    '<a class="dialog-cancel" ng-click="cancel()">' +
+                      '<span class="glyphicon glyphicon-remove"></span>' +
+                    '</a>' +
+                    '<h3 class="modal-title">delete action</h3>' +
+                  '</div>' +
+                  '<div class="modal-body">Are you absolutely sure you want to delete?</div>' +
+                  '<div class="modal-footer">' +
+                    '<button type="btn" class="btn btn-default" ng-click="cancel()">Close</button>' +
+                    '<button class="btn btn-primary" ng-click="deleteAction()">Yes</button>' +
+                  '</div>',
+        scope: $scope,
+        controller: ['$scope', '$modalInstance', 'ds.<%= camelModelName %>', function($scope, $modalInstance, DS){
+          $scope.cancel = function(){
+            $modalInstance.dismiss('cancel');
+          };
+
+          $scope.deleteAction = function(){
+            DS.delete($scope.listChecked)
+              .then(function(){
+                $modalInstance.dismiss('cancel');
+                $scope.<%= camelModelName %>TableParams.page(1);
+                $scope.<%= camelModelName %>TableParams.reload();
+                logger.success('delete successfully');
+              }, function(error){
+                $modalInstance.dismiss('cancel');
+                logger.error('delete failed.');
+              });
+          };
+        }]
+      });
+    };
+  <% } %>
   <% if(modelEditList.length > 0){ %>
     $scope.saveItem = function(item){
-      save([item.id]);
+      save([item.id], function(){
+        
+      });
     };
     $scope.saveAll = function(){
       if($scope.listChecked.length === 0){

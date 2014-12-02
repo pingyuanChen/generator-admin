@@ -35,8 +35,8 @@ define(['./DataSource'], function(DataSource) {
       });
     },
     delete: function(params) {
-      return this._load(basePath+'/delete', {
-        params: params
+      return this._update(basePath+'/delete', {
+        data: params
       });
     }
   });

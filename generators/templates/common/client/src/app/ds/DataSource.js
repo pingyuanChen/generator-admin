@@ -31,11 +31,12 @@ define(['common/utils/klass', 'common/utils/url'], function(klass, UrlUtil) {
     httpConfig = _makeHttpConfig(httpConfig);
     httpConfig.url = url;
     httpConfig.method = method;
-    //httpConfig.isModelData = httpConfig.isModelData != null ? !!httpConfig.isModelData : true;
+    httpConfig.isModelData = httpConfig.isModelData != null ? !!httpConfig.isModelData : true;
     ds.$http(httpConfig).success(function(data, status, headers, config) {
-      // if (method.toUpperCase() === 'GET' && config.isModelData === true) {
-         ds.data = data.data;
-      // }
+      if(method.toUpperCase() === 'GET' && config.isModelData === true) {
+        //仅是modelData的才赋值于ds.data，以供后续save、saveall使用
+        ds.data = data.data;
+      }
       if (data.status && data.status !== 0) {
         ds._showToast(method, url, data);
         dfd.reject({

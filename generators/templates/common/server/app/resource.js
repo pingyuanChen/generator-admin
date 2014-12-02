@@ -22,6 +22,15 @@ router.post(apiPath + '/:resouce/update', function(req, res, next) {
     });
 });
 
+router.post(apiPath + '/:resouce/delete', function(req, res, next) {
+  res.status(200)
+    .send({
+      "status": 0,
+      "msg": "",
+      "data": {}
+    });
+});
+
 router.get(apiPath + '/:resouce/:action', function(req, res, next) {
   var resourceName = req.params.resouce,
     action = req.params.action,

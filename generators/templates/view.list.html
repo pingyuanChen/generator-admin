@@ -23,6 +23,9 @@
   </div>
   <div class="list-middle clearfix">
     <div class="list-middle-left left">
+    <% if(!list_actions || _.indexOf(list_actions, 'delete') > -1){ %>
+      <button ng-show="!isPopup()" class="btn btn-default" ng-click="delete()">delete</button>
+    <% } %>
       <span class="list-total-checked">{{listTotal}}中{{listChecked.length}}被选</span>
     </div>
     <div class="list-middle-right">
