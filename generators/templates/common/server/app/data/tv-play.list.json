@@ -2,31 +2,35 @@
     "status": 0,
     "msg": "",
     "data": {
-        "filters": {
-            "defaultOption": "finished",
-            "values":[
-                {
-                    "display_value": "All",
-                    "value": "all",
-                    "name": "status"
-                },
-                {
-                    "display_value": "Draft",
-                    "value": "draft",
-                    "name": "status"
-                },
-                {
-                    "display_value": "Finished",
-                    "value": "finished",
-                    "name": "status"
-                },
-                {
-                    "display_value": "movie",
-                    "value": "movie",
-                    "name": "type"
-                }
-            ]
-        },
+        "filters": [
+            {
+                "items": [
+                    {
+                        "display_value": "Android",
+                        "value": "Android"
+                    },
+                    {
+                        "display_value": "Add-on",
+                        "value": "Add-on"
+                    }
+                ],
+                "name": "platform",
+                "default": "Add-on"
+            },
+            {
+                "items": [
+                    {
+                        "display_value": "11.2.3",
+                        "value": "11.2.3"
+                    },
+                    {
+                        "display_value": "12.1.2",
+                        "value": "12.1.2"
+                    }
+                ],
+                "name": "version"
+            }
+        ],
         "items": [
             {
                 "id": "01",

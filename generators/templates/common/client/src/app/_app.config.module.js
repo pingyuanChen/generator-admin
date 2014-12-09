@@ -12,8 +12,8 @@ define(function(){
         basePath: '<%= developmentBaseUrl %>'
       },
       'release': {
-        domain: '<%= releaseBaseUrl %>',
-        basePath: '<%= releaseDomain %>'
+        domain: '<%= releaseDomain %>',
+        basePath: '<%= releaseBaseUrl %>'
       }
     })
     .constant('ENV', '<%= defaultEnv %>')

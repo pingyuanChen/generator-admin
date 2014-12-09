@@ -21,11 +21,11 @@ define(function(){
           return '<div class="form-group" ng-repeat="itemName in selectName">'+
                     '<label class="col-sm-4 control-label">{{selectLabel[$index]}}</label>'+
                     '<div class="col-sm-6">'+
-                      '<select class="form-control" ng-options="item.value as item.display_value for item in selectedModel[itemName] | filter:{parent:checked[selectName[$index-1]]}:true" ng-model="checked[itemName]" ng-change="updateSub($index+1)"></select>'+
+                      '<select ng-options="item.value as item.display_value for item in selectedModel[itemName] | filter:{parent:parentChecked($index)}:true" ng-model="checked[itemName]" ng-change="updateSub($index+1)"></select>'+
                     '</div>'+
                   '</div>';
         }else{
-          return '<select class="form-control" ng-repeat="itemName in selectName" ng-options="item.value as item.display_value for item in selectedModel[itemName] | filter:{parent:checked[selectName[$index-1]]}:true" ng-model="checked[itemName]" ng-change="updateSub($index+1)"></select>';
+          return '<select ng-repeat="itemName in selectName" ng-options="item.value as item.display_value for item in selectedModel[itemName] | filter:{parent:cparentChecked($index)}:true" ng-model="checked[itemName]" ng-change="updateSub($index+1)"></select>';
         }
       },
       link: function($scope, $element, $attrs){
@@ -38,10 +38,19 @@ define(function(){
           }
         });
 
+        $scope.parentChecked = function(index){
+          var preSelect = $scope.selectName.slice(0, index),
+              parentChecked = [];
+          preSelect.forEach(function(selectItem){
+              parentChecked.push($scope.checked[selectItem]);
+          });
+          return parentChecked.join(',');
+        };
+
         $scope.updateSub = function(index){
           updateSelectModel(index);
           onSelectedFun();
-        }
+        };
 
         function onSelectedFun(isInit){
           $scope.onSelected({
@@ -50,10 +59,10 @@ define(function(){
             },
             isInit: isInit || false
           });
-        }
+        };
 
         function updateSelectModel(start){
-          var key, item, filterAry, lastChecked;
+          var key, item, filterAry;
           for(var i=start,l=$scope.selectName.length; i<l; i++){
             key = $scope.selectName[i];
             item = $scope.selectedModel[key];
@@ -61,9 +70,8 @@ define(function(){
               //初始化第一个下拉框
               $scope.checked[key] = item[0].value;
             }else{
-              lastChecked = $scope.checked[$scope.selectName[i-1]];
               filterAry = item.filter(function(ele){
-                return ele.parent == lastChecked;
+                return ele.parent == $scope.parentChecked(i);
               });
               $scope.checked[key] = filterAry[0].value;
             }

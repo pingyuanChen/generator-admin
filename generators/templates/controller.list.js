@@ -81,12 +81,15 @@ define(['common/utils/date', 'common/utils/dataConverter'], function(dateUtil, d
       });
     };
   <% } %>
+    function save(items, callback){
+      DS.update(items)
+        .then(function(){
+          callback && callback();
+        }, function(error){
+          //save failed
+        });
+    }
   <% if(modelEditList.length > 0){ %>
-    $scope.saveItem = function(item){
-      save([item.id], function(){
-        
-      });
-    };
     $scope.saveAll = function(){
       if($scope.listChecked.length === 0){
         logger.warning('Please select a content!');
@@ -97,34 +100,36 @@ define(['common/utils/date', 'common/utils/dataConverter'], function(dateUtil, d
         logger.success('save successfully!');
       });
     };
-    function save(items, callback){
-      DS.update(items)
-        .then(function(){
-          callback && callback();
-        }, function(error){
-          //save failed
-        });
-    }
   <% } %>
-
+  <% if(list_table_actions && list_table_actions.length > 0){
+    _.forEach(list_table_actions, function(tableAction){ 
+      if(tableAction == 'save'){ %>
+      $scope.save = function(item){
+        save([item.id], function(){
+          
+        });
+      };
+      <% }else{ %>
+        //TODO
+      $scope.<%= tableAction %> = function(item){
+      };
+  <%  }
+    })
+  } %>
   <% if(list_filter_type == 'cascade-dropdown'){ %>
     $scope.filter = function(node, isInit) {
       if (!isInit) {
-        apiParams = node.selectedValue;
+        _.extend(apiParams, node.selectedValue);
         $scope.<%= camelModelName %>TableParams.page(1);
         $scope.<%= camelModelName %>TableParams.reload();
       }
     };
-  <% }else if(list_filter_type == 'simple-dropdown'){ %>
-    $scope.filter = function(){
-      var curOption = _.find($scope.filterData.values, function(item){
-        return item.value = $scope.filterModel;
-      });
-      if(curOption){
-        apiParams[curOption.name] = curOption.value;
-        $scope.<%= camelModelName %>TableParams.page(1);
-        $scope.<%= camelModelName %>TableParams.reload();
-      }
+  <% }else if(list_filter_type == 'multi-dropdown'){ %>
+    $scope.filter = function(node) {
+      var selectedValue = node.selectedValue;
+      _.extend(apiParams, selectedValue);
+      $scope.tvPlayTableParams.page(1);
+      $scope.tvPlayTableParams.reload();
     };
   <% } %>
 
@@ -132,7 +137,7 @@ define(['common/utils/date', 'common/utils/dataConverter'], function(dateUtil, d
     $scope.clearSearch = function(){
       $scope.search.string = '';
     };
-    $scope.search = function(){
+    $scope.goSearch = function(){
       apiParams.searchKeyword = $scope.search.string;
       $scope.<%= camelModelName %>TableParams.page(1);
       $scope.<%= camelModelName %>TableParams.reload();
@@ -226,9 +231,11 @@ define(['common/utils/date', 'common/utils/dataConverter'], function(dateUtil, d
             $scope.selectName = convertedData.selectName;
             $scope.selectOptions = convertedData.selectOptions;
           }
-        <% }else if(list_filter_type == 'simple-dropdown'){ %>
-          $scope.filterData = dataConverter.simpleFilter(filterData);
-          $scope.filterModel = $scope.filterData.defaultOption;
+        <% }else if(list_filter_type == 'multi-dropdown'){ %>
+          if(!$scope.selectOptions){
+          //only assign at first time, because it would cause dpMultiDropdown model change and reset default value
+            $scope.selectOptions = filterData;
+          }
         <% } %>
           $scope.items = items;
           $scope.listTotal = resData.total;

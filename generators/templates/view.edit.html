@@ -22,8 +22,10 @@
                   <div class="col-sm-6">
                   <% } %>
 
-                  <% if(displayType == 'input'){ %>
-                    <input type="text" class="form-control" ng-model="entity.<%= column.name %>">
+                  <% if(displayType == 'input'){ 
+                    column.placeholder = column.placeholder || '';
+                  %>
+                    <input type="text" class="form-control" ng-model="entity.<%= column.name %>" placeholder="<%= column.placeholder %>">
                   <% }else if(displayType == 'select'){ %>
                     <select ng-model="entity.<%= column.name %>">
                     <% _.forEach(column.display_data, function(selectItem){ %>

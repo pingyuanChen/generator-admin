@@ -6,8 +6,8 @@
     <div class="filter-wrap left">
     <% if(list_filter_type=='cascade-dropdown'){ %>
       <cascade-dropdown selected-model="selectOptions" select-name="selectName" on-selected="filter(node, isInit)"></cascade-dropdown>
-    <% } else if(list_filter_type=='simple-dropdown'){ %>
-      <select class="form-control" ng-model="filterModel" ng-options="option.value as option.display_value for option in filterData.values" ng-change="filter()"></select>
+    <% } else if(list_filter_type=='multi-dropdown'){ %>
+      <dp-multi-dropdown selected-model="selectOptions" on-selected="filter(node)"></dp-multi-dropdown>
     <% } %>
     </div>
   <% if(!search_field || search_field!=false){ %>
@@ -15,7 +15,7 @@
       <div class="form-group">
         <div class="input-group">
           <input class="form-control" type="text" ng-model="search.string">
-          <span class="glyphicon glyphicon-search form-control-feedback" ng-disabled="isLoading" ng-click="search()"></span>
+          <span class="glyphicon glyphicon-search form-control-feedback" ng-disabled="isLoading" ng-click="goSearch()"></span>
         </div>
       </div>
     </div>
@@ -63,7 +63,9 @@
         <% _.forEach(modelColumn, function(column){ %>
           <th><%= column.alias %></th>
         <% }); %>
+        <% if(list_table_actions && list_table_actions.length > 0){ %>
           <th>Actions</th>
+        <% } %>
         </tr>
       </thead>
       <tbody>
@@ -82,9 +84,13 @@
           <td>{{item.<%= column.name %>}}</td>
         <% } %>
       <% }); %>
-          <td data-title="'Actions'" width="180">
-            <a href="" class="btn btn-default" ng-click="saveItem(item)">save</a>
+      <% if(list_table_actions && list_table_actions.length > 0){ %>
+          <td data-title="'Actions'" class="list-table-actions-col">
+            <% _.forEach(list_table_actions, function(tableAction){ %>
+              <a href="" class="btn btn-default left" ng-click="<%= tableAction %>(item)"><%= tableAction %></a>
+            <% }) %>
           </td>
+      <% } %>
         </tr>
       </tbody>
     </table>
