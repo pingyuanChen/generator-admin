@@ -9,6 +9,20 @@
         "director": "李国立",
         "type": ["冒险", "悬疑"],
         "release_time": "2014-8-13",
-        "is_hot": true
+        "is_hot": true,
+        "categories": {
+            "id": "02",
+            "title": "奥斯卡"
+        },
+        "rules": [
+            {
+                "id": "213",
+                "title": "最新"
+            },
+            {
+                "id": "221",
+                "title": "最热"
+            }
+        ]
     }
 }

@@ -54,8 +54,8 @@
                   <% }else if(displayType == 'single-checkbox'){ %>
                     <label><input type="checkbox" ng-model="entity.<%= column.name %>"><span class="form-input-text"><%= column.display_data %></span></label>
                   <% }else if(displayType == 'reference'){ %>
-                    <input type="text" class="form-control" ng-model="entity.<%= column.name %>">
-                    <span class="ref-icon glyphicon glyphicon-search" ng-click="popUpList('<%= column.module_name %>', '<%= column.name %>')"></span>
+                    <input type="text" class="form-control" ng-model="entity.<%= column.name %>.<%= column.display_ref %>">
+                    <span class="ref-icon glyphicon glyphicon-search" ng-click="popUpList('<%= column.module_name %>', '<%= column.name %>', '<%= column.display_ref %>')"></span>
                   <% }else if(displayType == 'inline-reference'){ %>
                     <table class="table table-bordered ref-table ref-<%= column.display_data %>">
                       <thead>
@@ -67,9 +67,9 @@
                       <tbody>
                         <tr ng-repeat="refItem in entity.<%= column.name %>">
                           <td>
-                            <input type="text" class="form-control inline-ref-input-cell" ng-model="refItem.id">
+                            <input type="text" class="form-control inline-ref-input-cell" ng-model="refItem['<%= column.display_ref %>']">
                             <div class="ref-btn-wrap">
-                              <span class="glyphicon glyphicon-search" ng-click="popUp('list', '<%= column.module_name %>', '<%= column.name %>', $index)"></span>
+                              <span class="glyphicon glyphicon-search" ng-click="popUp('list', '<%= column.module_name %>', '<%= column.name %>', $index, '<%= column.display_ref %>')"></span>
                               <span class="glyphicon glyphicon-pencil" ng-click="popUp('edit', '<%= column.module_name %>', '<%= column.name %>', $index, refItem.id)"></span>
                               <span class="glyphicon glyphicon-plus" ng-click="popUp('add', '<%= column.module_name %>', '<%= column.name %>', $index)"></span>
                             </div>
@@ -80,9 +80,9 @@
                         </tr>
                         <tr>
                           <td>
-                            <input type="text" class="form-control inline-ref-input-cell" ng-model="entity.<%= column.name %>[entity.<%= column.name %>.length].id">
+                            <input type="text" class="form-control inline-ref-input-cell" ng-model="entity.<%= column.name %>[entity.<%= column.name %>.length]['<%= column.display_ref %>']">
                             <div class="ref-btn-wrap">
-                              <span class="glyphicon glyphicon-search" ng-click="popUp('list', '<%= column.module_name %>', '<%= column.name %>', entity.<%= column.name %>.length)"></span>
+                              <span class="glyphicon glyphicon-search" ng-click="popUp('list', '<%= column.module_name %>', '<%= column.name %>', entity.<%= column.name %>.length, '<%= column.display_ref %>')"></span>
                               <span class="glyphicon glyphicon-pencil" ng-disabled="!entity.<%= column.name %>.length.id" ng-click="popUp('edit', '<%= column.module_name %>', '<%= column.name %>', entity.<%= column.name %>.length, entity.<%= column.name %>.length.id)"></span>
                               <span class="glyphicon glyphicon-plus" ng-click="popUp('add', '<%= column.module_name %>', '<%= column.name %>', entity.<%= column.name %>.length)"></span>
                             </div>

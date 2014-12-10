@@ -11,7 +11,6 @@ define([], function() {
     var stateParams = $state.params,
       isEditState = _.has(stateParams, 'id'),
       curRefItem, curRefIndex;
-
     clearForm();
 
     if(isEditState){
@@ -79,31 +78,30 @@ define([], function() {
     };
     $scope.format = 'yyyy-MM-dd';
 
-    $scope.popUp = function(pageType, moduleName, modelName, index, editId){
+    $scope.popUp = function(pageType, moduleName, modelName, index, params){//params: editId or display_ref
       var path = '',
         originUrl = $location.absUrl(),
         originPath = $location.path();
       
       if(pageType == 'list'){
-        path = '/' + moduleName + '/' + modelName;
+        path = '/' + moduleName + '/' + modelName + '?popup=1&label=' + params;
         curRefItem = modelName;
         curRefIndex = index;
       }else if(pageType == 'add'){
-        path = '/' + moduleName + '/' + modelName + '/add';
+        path = '/' + moduleName + '/' + modelName + '/add?popup=1';
       }else if(pageType == 'edit'){
-        path = '/' + moduleName + '/' + modelName + '/' + editId;
+        path = '/' + moduleName + '/' + modelName + '/' + params + '?popup=1';
       }
-      path += '?popup=1';
       openChildWindow(originUrl.replace(originPath, path), 'from-inline-ref');
     };
 
-    $scope.popUpList = function(moduleName, modelName){
+    $scope.popUpList = function(moduleName, modelName, displayRef){
       var path = '',
         originUrl = $location.absUrl(),
         originPath = $location.path();
 
       curRefItem = modelName;
-      path = '/' + moduleName + '/' + modelName + '?popup=1';
+      path = '/' + moduleName + '/' + modelName + '?popup=1&label='+displayRef;
       openChildWindow(originUrl.replace(originPath, path), 'from-ref');
     };
 
@@ -115,12 +113,12 @@ define([], function() {
       if(!$scope.entity[curRefItem][curRefIndex]){
         $scope.entity[curRefItem][curRefIndex] = {};
       }
-      $scope.entity[curRefItem][curRefIndex].id = args.id;
+      $scope.entity[curRefItem][curRefIndex] = args;
       $scope.$apply();
     });
 
     $scope.$on('REF_LIST_SELECTED', function(data, args){
-      $scope.entity[curRefItem] = args.id;
+      $scope.entity[curRefItem] = args;
       $scope.$apply();
     });
 

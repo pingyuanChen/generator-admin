@@ -24,16 +24,15 @@ define(['common/utils/date', 'common/utils/dataConverter'], function(dateUtil, d
     $scope.edit = function(item){
       if($location.search().popup){
         var windowScope = $window.opener.angular.element('body').scope(),
-          childWindowName = $window.window.name;
-
+          childWindowName = $window.name,
+          childWindowLabel = $location.search().label || 'id',
+          broadcastData = {};
+        broadcastData.id = item.id;
+        broadcastData[childWindowLabel] = item[childWindowLabel];
         if(childWindowName == 'from-ref'){
-          windowScope.$broadcast('REF_LIST_SELECTED', {
-            id: item.id
-          });
+          windowScope.$broadcast('REF_LIST_SELECTED', broadcastData);
         }else{
-          windowScope.$broadcast('INLINE_REF_LIST_SELECTED', {
-            id: item.id
-          });
+          windowScope.$broadcast('INLINE_REF_LIST_SELECTED', broadcastData);
         }
         $window.close();
       }

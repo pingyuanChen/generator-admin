@@ -70,15 +70,15 @@
     }
   ],
   "ordering": ["release_time"],
-  "list_filter_type": "cascade-dropdown",
+  "list_filter_type": "multi-dropdown",
   "list_display": ["title", "source", "status", "type", "release_time"],
   "list_display_link": ["title"],
   "list_editable": ["release_time"],
   "list_per_page": 10,
-  "search_field": ["title"],
+  "search_field": false,
   "fieldsets": {
     "基础选项": ["title", "source", "status", "type", "release_time"],
     "高级选项": ["type", "status"]
   },
-  "list_actions": ["add", "save"]
+  "list_actions": ["add"]
 }

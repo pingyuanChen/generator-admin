@@ -2,19 +2,21 @@
     "status": 0,
     "msg": "",
     "data": {
-        "filters": {
-            "items": [
-                {
-                    "display_value": "Android",
-                    "value": "Android"
-                },
-                {
-                    "display_value": "Add-on",
-                    "value": "Add-on"
-                }
-            ],
-            "name": "platform"
-        },
+        "filters": [
+            {
+                "items": [
+                    {
+                        "display_value": "Android",
+                        "value": "Android"
+                    },
+                    {
+                        "display_value": "Add-on",
+                        "value": "Add-on"
+                    }
+                ],
+                "name": "platform"
+            }
+        ],
         "items": [
             {
                 "id": "01",
