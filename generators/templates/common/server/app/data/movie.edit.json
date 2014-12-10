@@ -17,11 +17,13 @@
         "rules": [
             {
                 "id": "213",
-                "title": "最新"
+                "title": "最新",
+                "order": 1
             },
             {
                 "id": "221",
-                "title": "最热"
+                "title": "最热",
+                "order": 4
             }
         ]
     }

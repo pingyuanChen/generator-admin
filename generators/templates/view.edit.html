@@ -60,12 +60,16 @@
                     <table class="table table-bordered ref-table ref-<%= column.display_data %>">
                       <thead>
                         <tr>
+                          <th width="160">Order</th>
                           <th><%= column.display_data %></th>
                           <th>Delete?</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr ng-repeat="refItem in entity.<%= column.name %>">
+                          <td>
+                            <input type="text" class="form-control inline-ref-order-cell" ng-model="refItem.order">
+                          </td>
                           <td>
                             <input type="text" class="form-control inline-ref-input-cell" ng-model="refItem['<%= column.display_ref %>']">
                             <div class="ref-btn-wrap">
@@ -79,6 +83,9 @@
                           </td>
                         </tr>
                         <tr>
+                          <td>
+                            <input type="text" class="form-control inline-ref-order-cell" ng-model="entity.<%= column.name %>[entity.<%= column.name %>.length]['order']">
+                          </td>
                           <td>
                             <input type="text" class="form-control inline-ref-input-cell" ng-model="entity.<%= column.name %>[entity.<%= column.name %>.length]['<%= column.display_ref %>']">
                             <div class="ref-btn-wrap">
