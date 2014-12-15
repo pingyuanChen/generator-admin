@@ -15,7 +15,7 @@ module.exports = function(grunt) {
    * Load in our build configuration file.
    */
   var userConfig = {
-    buildDir: './build',
+    distDir: './build',
     srcDir: './src',
     vendorFiles: {
       js: [
@@ -91,13 +91,13 @@ module.exports = function(grunt) {
       },
       boot: {
         src: '<%= srcDir %>/boot.js',
-        dest: '<%= buildDir %>/boot.js'
+        dest: '<%= distDir %>/boot.js'
       },
       build_vendors: {
         files: [{
           src: userConfig.vendorFiles.js.concat(userConfig.vendorFiles.css),
           cwd: '<%= srcDir %>',
-          dest: '<%= buildDir %>',
+          dest: '<%= distDir %>',
           expand: true
         }]
       },
@@ -110,7 +110,7 @@ module.exports = function(grunt) {
         dest: '<%= distDir %>/app.config.module.js',
         options: {
           process: function(content, srcpath){
-            return content.replace(/\'ENV\'*\'development\'/i, '"ENV"\, "release"');
+            return content.replace(/(\'|\")ENV\1.*(\'|\")development\2/i, '"ENV", "release"');
           }
         }
       },

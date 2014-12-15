@@ -90,7 +90,7 @@
                             <input type="text" class="form-control inline-ref-input-cell" ng-model="entity.<%= column.name %>[entity.<%= column.name %>.length]['<%= column.display_ref %>']">
                             <div class="ref-btn-wrap">
                               <span class="glyphicon glyphicon-search" ng-click="popUp('list', '<%= column.module_name %>', '<%= column.name %>', entity.<%= column.name %>.length, '<%= column.display_ref %>')"></span>
-                              <span class="glyphicon glyphicon-pencil" ng-disabled="!entity.<%= column.name %>.length.id" ng-click="popUp('edit', '<%= column.module_name %>', '<%= column.name %>', entity.<%= column.name %>.length, entity.<%= column.name %>.length.id)"></span>
+                              <span class="glyphicon glyphicon-pencil" ng-disabled="!entity.<%= column.name %>[entity.<%= column.name %>.length]['id']" ng-click="popUp('edit', '<%= column.module_name %>', '<%= column.name %>', entity.<%= column.name %>.length, entity.<%= column.name %>[entity.<%= column.name %>.length]['id'])"></span>
                               <span class="glyphicon glyphicon-plus" ng-click="popUp('add', '<%= column.module_name %>', '<%= column.name %>', entity.<%= column.name %>.length)"></span>
                             </div>
                           </td>
