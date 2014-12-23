@@ -7,7 +7,7 @@
     <% if(list_filter_type=='cascade-dropdown'){ %>
       <cascade-dropdown selected-model="selectOptions" select-name="selectName" on-selected="filter(node, isInit)"></cascade-dropdown>
     <% } else if(list_filter_type=='multi-dropdown'){ %>
-      <dp-multi-dropdown selected-model="selectOptions" on-selected="filter(node)"></dp-multi-dropdown>
+      <dp-multi-dropdown selected-model="selectOptions" on-selected="filter(node, isInit)"></dp-multi-dropdown>
     <% } %>
     </div>
   <% if(!search_field || search_field!=false){ %>

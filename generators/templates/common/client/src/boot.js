@@ -8,7 +8,8 @@
     './vendor/ng-table/ng-table.min.js',
     './vendor/toastr/toastr.min.js',
     './vendor/requirejs/require.js',
-    './vendor/underscore/underscore.js'
+    './vendor/underscore/underscore.js',
+    './vendor/highcharts-release/highcharts.js'
   ]).ready('ALL', function() {
     // alert(require.config);
     requirejs.config({

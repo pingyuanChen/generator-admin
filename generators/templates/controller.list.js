@@ -115,20 +115,12 @@ define(['common/utils/date', 'common/utils/dataConverter'], function(dateUtil, d
   <%  }
     })
   } %>
-  <% if(list_filter_type == 'cascade-dropdown'){ %>
+  <% if(!list_filter_type || list_filter_type != false){ %>
     $scope.filter = function(node, isInit) {
+      _.extend(apiParams, node.selectedValue);
       if (!isInit) {
-        _.extend(apiParams, node.selectedValue);
-        $scope.<%= camelModelName %>TableParams.page(1);
-        $scope.<%= camelModelName %>TableParams.reload();
+        reloadChart();
       }
-    };
-  <% }else if(list_filter_type == 'multi-dropdown'){ %>
-    $scope.filter = function(node) {
-      var selectedValue = node.selectedValue;
-      _.extend(apiParams, selectedValue);
-      $scope.<%= camelModelName %>TableParams.page(1);
-      $scope.<%= camelModelName %>TableParams.reload();
     };
   <% } %>
 

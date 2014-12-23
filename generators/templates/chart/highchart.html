@@ -1,0 +1,57 @@
+<div class="chart">
+  <div class="chart-head">
+  <% if(!list_datepicker || list_datepicker != false){ %>
+    <div class="list-datepicker right">
+      <div class="date-selected">
+        <span class="input-group date-picker-select">
+          <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="datePicker.start.dt" max-date="datePicker.end.dt" is-open="datePicker.start.opened" show-button-bar="false" ng-required="true"/>
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open($event, datePicker.start)"> <i class="glyphicon glyphicon-calendar"></i>
+            </button>
+          </span>
+        </span>
+        <label  class="date-picker-text">—</label>
+        <span class="input-group date-picker-select end-date">
+          <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="datePicker.end.dt" min-date="datePicker.start.dt" max-date="datePicker.end.max" is-open="datePicker.end.opened" show-button-bar="false" ng-required="true"/>
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open($event, datePicker.end)"> <i class="glyphicon glyphicon-calendar"></i>
+            </button>
+          </span>
+        </span>
+      </div>
+    </div>
+  <% } %>
+    <div class="filter-wrap left">
+    <% if(filter_type=='cascade-dropdown'){ %>
+      <cascade-dropdown selected-model="selectOptions" select-name="selectName" on-selected="filter(node, isInit)"></cascade-dropdown>
+    <% } else if(filter_type=='multi-dropdown'){ %>
+      <dp-multi-dropdown selected-model="selectOptions" on-selected="filter(node, isInit)"></dp-multi-dropdown>
+    <% } %>
+    </div>
+
+  <% if(!search_field || search_field!=false){ %>
+    <div class="search-wrap left">
+      <div class="form-group">
+        <div class="input-group">
+          <input class="form-control" type="text" ng-model="search.string">
+          <span class="glyphicon glyphicon-search form-control-feedback" ng-disabled="isLoading" ng-click="goSearch()"></span>
+        </div>
+      </div>
+    </div>
+  <% } %>
+  </div>
+  <div class="chart-content">
+  <% _.forEach(charts, function(ele, index){%>
+    <div class="widget-box">
+      <div class="widget-title" ng-click="isCollapse<%= index %> = !isCollapse<%= index %>">
+        <span class="icon"><i class="glyphicon glyphicon-align-justify"></i></span>
+        <h5><%= ele.title %></h5>
+      </div>
+      <div class="widget-content" collapse="isCollapse<%= index %>">
+        <dp-highchart chart-config="chartConfig<%= index %>"></dp-highchart>
+      </div>
+    </div>
+  <% }); %>
+
+  </div>
+</div>

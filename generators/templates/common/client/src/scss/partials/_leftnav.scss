@@ -37,6 +37,9 @@
   .tree-first-level:nth-child(3) > .tree-row > .tree-branch-head{
     background: url(../assets/images/nav_pic.png) no-repeat 22px -95px;
   }
+  .tree-first-level:nth-child(4) > .tree-row > .tree-branch-head{
+    background: url(../assets/images/nav_pic.png) no-repeat 20px -55px;;
+  }
 
   .tree-selected{
     color: #ffffff;

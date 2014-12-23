@@ -1,0 +1,479 @@
+{
+    "status": 0,
+    "msg": "",
+    "data": {
+        "filters": {
+            "items": [{
+                "display_value": "android",
+                "value": "android",
+                "children": {
+                    "items": [{
+                        "display_value": "mobi.mgeek.tunnybrowser",
+                        "value": "mobi.mgeek.tunnybrowser",
+                        "children": {
+                            "items": [{
+                                "display_value": "trunk",
+                                "value": "trunk",
+                                "children": {
+                                    "items": [{
+                                        "display_value": "11.5.5",
+                                        "value": "11.5.5",
+                                        "children": {
+                                            "items": [{
+                                                "display_value": "All",
+                                                "value": ""
+                                            }, {
+                                                "display_value": "Translating",
+                                                "value": "Translating"
+                                            }, {
+                                                "display_value": "To be check",
+                                                "value": "To be check"
+                                            }, {
+                                                "display_value": "Finished",
+                                                "value": "Finished"
+                                            }],
+                                            "name": "status"
+                                        }
+                                    }, {
+                                        "display_value": "11.4.8",
+                                        "value": "11.4.8",
+                                        "children": {
+                                            "items": [{
+                                                "display_value": "All",
+                                                "value": ""
+                                            }, {
+                                                "display_value": "Translating",
+                                                "value": "Translating"
+                                            }, {
+                                                "display_value": "To be check",
+                                                "value": "To be check"
+                                            }, {
+                                                "display_value": "Finished",
+                                                "value": "Finished"
+                                            }],
+                                            "name": "status"
+                                        }
+                                    }, {
+                                        "display_value": "11.3.4",
+                                        "value": "11.3.4",
+                                        "children": {
+                                            "items": [{
+                                                "display_value": "All",
+                                                "value": ""
+                                            }, {
+                                                "display_value": "Translating",
+                                                "value": "Translating"
+                                            }, {
+                                                "display_value": "To be check",
+                                                "value": "To be check"
+                                            }, {
+                                                "display_value": "Finished",
+                                                "value": "Finished"
+                                            }],
+                                            "name": "status"
+                                        }
+                                    }, {
+                                        "display_value": "11.3.3",
+                                        "value": "11.3.3",
+                                        "children": {
+                                            "items": [{
+                                                "display_value": "All",
+                                                "value": ""
+                                            }, {
+                                                "display_value": "Translating",
+                                                "value": "Translating"
+                                            }, {
+                                                "display_value": "To be check",
+                                                "value": "To be check"
+                                            }, {
+                                                "display_value": "Finished",
+                                                "value": "Finished"
+                                            }],
+                                            "name": "status"
+                                        }
+                                    }, {
+                                        "display_value": "11.3.2",
+                                        "value": "11.3.2",
+                                        "children": {
+                                            "items": [{
+                                                "display_value": "All",
+                                                "value": ""
+                                            }, {
+                                                "display_value": "Translating",
+                                                "value": "Translating"
+                                            }, {
+                                                "display_value": "To be check",
+                                                "value": "To be check"
+                                            }, {
+                                                "display_value": "Finished",
+                                                "value": "Finished"
+                                            }],
+                                            "name": "status"
+                                        }
+                                    }, {
+                                        "display_value": "11.3.1",
+                                        "value": "11.3.1",
+                                        "children": {
+                                            "items": [{
+                                                "display_value": "All",
+                                                "value": ""
+                                            }, {
+                                                "display_value": "Translating",
+                                                "value": "Translating"
+                                            }, {
+                                                "display_value": "To be check",
+                                                "value": "To be check"
+                                            }, {
+                                                "display_value": "Finished",
+                                                "value": "Finished"
+                                            }],
+                                            "name": "status"
+                                        }
+                                    }, {
+                                        "display_value": "11.3.0",
+                                        "value": "11.3.0",
+                                        "children": {
+                                            "items": [{
+                                                "display_value": "All",
+                                                "value": ""
+                                            }, {
+                                                "display_value": "Translating",
+                                                "value": "Translating"
+                                            }, {
+                                                "display_value": "To be check",
+                                                "value": "To be check"
+                                            }, {
+                                                "display_value": "Finished",
+                                                "value": "Finished"
+                                            }],
+                                            "name": "status"
+                                        }
+                                    }, {
+                                        "display_value": "11.2.9",
+                                        "value": "11.2.9",
+                                        "children": {
+                                            "items": [{
+                                                "display_value": "All",
+                                                "value": ""
+                                            }, {
+                                                "display_value": "Translating",
+                                                "value": "Translating"
+                                            }, {
+                                                "display_value": "To be check",
+                                                "value": "To be check"
+                                            }, {
+                                                "display_value": "Finished",
+                                                "value": "Finished"
+                                            }],
+                                            "name": "status"
+                                        }
+                                    }, {
+                                        "display_value": "11.2.8",
+                                        "value": "11.2.8",
+                                        "children": {
+                                            "items": [{
+                                                "display_value": "All",
+                                                "value": ""
+                                            }, {
+                                                "display_value": "Translating",
+                                                "value": "Translating"
+                                            }, {
+                                                "display_value": "To be check",
+                                                "value": "To be check"
+                                            }, {
+                                                "display_value": "Finished",
+                                                "value": "Finished"
+                                            }],
+                                            "name": "status"
+                                        }
+                                    }, {
+                                        "display_value": "11.2.7",
+                                        "value": "11.2.7",
+                                        "children": {
+                                            "items": [{
+                                                "display_value": "All",
+                                                "value": ""
+                                            }, {
+                                                "display_value": "Translating",
+                                                "value": "Translating"
+                                            }, {
+                                                "display_value": "To be check",
+                                                "value": "To be check"
+                                            }, {
+                                                "display_value": "Finished",
+                                                "value": "Finished"
+                                            }],
+                                            "name": "status"
+                                        }
+                                    }, {
+                                        "display_value": "11.2.6",
+                                        "value": "11.2.6",
+                                        "children": {
+                                            "items": [{
+                                                "display_value": "All",
+                                                "value": ""
+                                            }, {
+                                                "display_value": "Translating",
+                                                "value": "Translating"
+                                            }, {
+                                                "display_value": "To be check",
+                                                "value": "To be check"
+                                            }, {
+                                                "display_value": "Finished",
+                                                "value": "Finished"
+                                            }],
+                                            "name": "status"
+                                        }
+                                    }, {
+                                        "display_value": "11.2.5",
+                                        "value": "11.2.5",
+                                        "children": {
+                                            "items": [{
+                                                "display_value": "All",
+                                                "value": ""
+                                            }, {
+                                                "display_value": "Translating",
+                                                "value": "Translating"
+                                            }, {
+                                                "display_value": "To be check",
+                                                "value": "To be check"
+                                            }, {
+                                                "display_value": "Finished",
+                                                "value": "Finished"
+                                            }],
+                                            "name": "status"
+                                        }
+                                    }, {
+                                        "display_value": "11.2.4",
+                                        "value": "11.2.4",
+                                        "children": {
+                                            "items": [{
+                                                "display_value": "All",
+                                                "value": ""
+                                            }, {
+                                                "display_value": "Translating",
+                                                "value": "Translating"
+                                            }, {
+                                                "display_value": "To be check",
+                                                "value": "To be check"
+                                            }, {
+                                                "display_value": "Finished",
+                                                "value": "Finished"
+                                            }],
+                                            "name": "status"
+                                        }
+                                    }],
+                                    "name": "appversion"
+                                }
+                            }, {
+                                "display_value": "branch",
+                                "value": "branch",
+                                "children": {
+                                    "items": [{
+                                        "display_value": "11.2.9_zte",
+                                        "value": "11.2.9_zte",
+                                        "children": {
+                                            "items": [{
+                                                "display_value": "All",
+                                                "value": ""
+                                            }, {
+                                                "display_value": "Translating",
+                                                "value": "Translating"
+                                            }, {
+                                                "display_value": "To be check",
+                                                "value": "To be check"
+                                            }, {
+                                                "display_value": "Finished",
+                                                "value": "Finished"
+                                            }],
+                                            "name": "status"
+                                        }
+                                    }, {
+                                        "display_value": "11.2.5.connect",
+                                        "value": "11.2.5.connect",
+                                        "children": {
+                                            "items": [{
+                                                "display_value": "All",
+                                                "value": ""
+                                            }, {
+                                                "display_value": "Translating",
+                                                "value": "Translating"
+                                            }, {
+                                                "display_value": "To be check",
+                                                "value": "To be check"
+                                            }, {
+                                                "display_value": "Finished",
+                                                "value": "Finished"
+                                            }],
+                                            "name": "status"
+                                        }
+                                    }],
+                                    "name": "appversion"
+                                }
+                            }],
+                            "name": "category"
+                        }
+                    }, {
+                        "display_value": "com.dolphin.addons.dolphinaccess",
+                        "value": "com.dolphin.addons.dolphinaccess",
+                        "children": {
+                            "items": [{
+                                "display_value": "branch",
+                                "value": "branch",
+                                "children": {
+                                    "items": [{
+                                        "display_value": "1.0",
+                                        "value": "1.0",
+                                        "children": {
+                                            "items": [{
+                                                "display_value": "All",
+                                                "value": ""
+                                            }, {
+                                                "display_value": "Translating",
+                                                "value": "Translating"
+                                            }, {
+                                                "display_value": "To be check",
+                                                "value": "To be check"
+                                            }, {
+                                                "display_value": "Finished",
+                                                "value": "Finished"
+                                            }],
+                                            "name": "status"
+                                        }
+                                    }],
+                                    "name": "appversion"
+                                }
+                            }],
+                            "name": "category"
+                        }
+                    }, {
+                        "display_value": "com.dolphin.browser.engine",
+                        "value": "com.dolphin.browser.engine",
+                        "children": {
+                            "items": [{
+                                "display_value": "branch",
+                                "value": "branch",
+                                "children": {
+                                    "items": [{
+                                        "display_value": "6.2.3",
+                                        "value": "6.2.3",
+                                        "children": {
+                                            "items": [{
+                                                "display_value": "All",
+                                                "value": ""
+                                            }, {
+                                                "display_value": "Translating",
+                                                "value": "Translating"
+                                            }, {
+                                                "display_value": "To be check",
+                                                "value": "To be check"
+                                            }, {
+                                                "display_value": "Finished",
+                                                "value": "Finished"
+                                            }],
+                                            "name": "status"
+                                        }
+                                    }],
+                                    "name": "appversion"
+                                }
+                            }],
+                            "name": "category"
+                        }
+                    }, {
+                        "display_value": "com.free.wifi.password.hotspots",
+                        "value": "com.free.wifi.password.hotspots",
+                        "children": {
+                            "items": [{
+                                "display_value": "trunk",
+                                "value": "trunk",
+                                "children": {
+                                    "items": [{
+                                        "display_value": "1.1",
+                                        "value": "1.1",
+                                        "children": {
+                                            "items": [{
+                                                "display_value": "All",
+                                                "value": ""
+                                            }, {
+                                                "display_value": "Translating",
+                                                "value": "Translating"
+                                            }, {
+                                                "display_value": "To be check",
+                                                "value": "To be check"
+                                            }, {
+                                                "display_value": "Finished",
+                                                "value": "Finished"
+                                            }],
+                                            "name": "status"
+                                        }
+                                    }],
+                                    "name": "appversion"
+                                }
+                            }],
+                            "name": "category"
+                        }
+                    }],
+                    "name": "appname"
+                }
+            }],
+            "name": "platform"
+        },
+        "items": [
+            {
+                "Brazil": {
+                    "count": 46064,
+                    "mobile_rate": 0.8004,
+                    "avg_time": 0.382,
+                    "wifi_rate": 0.947
+                },
+                "Indonesia": {
+                    "count": 82994,
+                    "mobile_rate": 0.8212,
+                    "avg_time": 0.732,
+                    "wifi_rate": 0.8803
+                },
+                "India": {
+                    "count": 30596,
+                    "mobile_rate": 0.8075,
+                    "avg_time": 0.501,
+                    "wifi_rate": 0.8987
+                },
+                "China": {
+                    "count": 14756,
+                    "mobile_rate": 0.9101,
+                    "avg_time": 0.26,
+                    "wifi_rate": 0.9171
+                },
+                "UAE": {
+                    "count": 34143,
+                    "mobile_rate": 0.7789,
+                    "avg_time": 0.397,
+                    "wifi_rate": 0.9085
+                },
+                "Russia": {
+                    "count": 481628,
+                    "mobile_rate": 0.8888,
+                    "avg_time": 0.371,
+                    "wifi_rate": 0.9642
+                }
+            },
+            {
+                "Jane": {
+                    "consumption": 13,
+                    "apple": 9
+                },
+                "John": {
+                    "consumption": 23,
+                    "apple": 6
+                },
+                "Joe": {
+                    "consumption": 19,
+                    "apple": 5
+                },
+                "Mary": {
+                    "apple": 2
+                }
+            }
+        ]
+    }
+}

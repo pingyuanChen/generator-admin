@@ -42,6 +42,17 @@ var express = require('express'),
             ],
             "display": "音乐库",
             "module": "musics"
+          },
+          {
+            "items": [
+              {
+                "url": "report-module/stability",
+                "model": "stability",
+                "display": "稳定性"
+              }
+            ],
+            "display": "报表",
+            "module": "report-module"
           }
       ],
       "features": [

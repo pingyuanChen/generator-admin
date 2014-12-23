@@ -24,14 +24,16 @@ define(function(){
             _.each(newVal, function(ele){
               $scope.checked[ele.name] = ele['default'] || ele.items[0].value;
             });
+            $scope.change(true);
           }
         });
 
-        $scope.change = function(){
+        $scope.change = function(isInit){
           $scope.onSelected({
             node: {
               selectedValue: $scope.checked
-            }
+            },
+            isInit: isInit || false
           });
         };
 

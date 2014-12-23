@@ -84,13 +84,40 @@ Generator.prototype.createModel = function createModel() {
   });
 };
 
+
+Generator.prototype.createChart = function createChart(){
+  var _this = this,
+    cmdDir = process.cwd(),
+    chartConfigPath = path.join(cmdDir, './chart'),
+    templatesDir = path.join(__dirname, '../templates'),
+    appDir = path.join(cmdDir, './'+this.appName),
+    chartList = fileUtil.getFilesInDirectory(chartConfigPath);//读取所有chart的配置文件
+
+  //配置模板路径
+  _this.sourceRoot(path.join(__dirname, '../templates'));
+
+  //读取所有chart的配置文件，并生成相应的view、controller
+  chartList.forEach(function(chart){
+    try{
+      var chartConfig = JSON.parse(_this.readFileAsString(path.join(chart)).trim());
+    }catch(e){
+      console.log('chart: '+ chart + ', JSON parse error: '+e);
+    }
+    _.extend(_this, angularUtil.updateChartConfig(chartConfig));
+    angularUtil.createChart(_this, appDir, templatesDir);
+  });
+};
+
+
 Generator.prototype.injectToModule = function injectToModule() {
   var _this = this,
     cmdDir = process.cwd(),
     modelConfigPath = path.join(cmdDir, './config'),
+    chartConfigPath = path.join(cmdDir, './chart'),
     templatesDir = path.join(__dirname, '../templates'),
     appDir = path.join(cmdDir, './'+this.appName),
-    modelList = fileUtil.getFilesInDirectory(modelConfigPath);//读取所有model的配置文件
+    modelList = fileUtil.getFilesInDirectory(modelConfigPath),//读取所有model的配置文件
+    chartList = fileUtil.getFilesInDirectory(chartConfigPath);//读取所有chart的配置文件
 
   this.conflicter.resolve(function (err) {
     modelList.forEach(function(model){
@@ -100,6 +127,13 @@ Generator.prototype.injectToModule = function injectToModule() {
       angularUtil.injectToModule(_this, appDir, templatesDir);
     });
     
+    chartList.forEach(function(chart){
+      var chartConfig = JSON.parse(_this.readFileAsString(path.join(chart)).trim());
+
+      _.extend(_this, angularUtil.updateChartConfig(chartConfig));
+      angularUtil.injectToChartModule(_this, appDir, templatesDir);
+    });
+
     angularUtil.gruntTask(
       [
         appDir+'/**/*.js',

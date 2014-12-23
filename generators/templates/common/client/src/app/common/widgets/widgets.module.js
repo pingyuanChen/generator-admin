@@ -6,10 +6,11 @@ define([
   './ccLoadingLayer',
   './dInputSync',
   './dHighChart',
+  './dpHighChart',
   './dropdownBtn',
   './splitDropdown',
   './hasFeature',
-  'common/utils/registerToModule'], function(contenteditable, ccTree, dpMultiDropdown, cascadeDropdown, ccLoadingLayer,dInputSync, dHighChart, dropdownBtn, splitDropdown, hasFeature, rtm) {
+  'common/utils/registerToModule'], function(contenteditable, ccTree, dpMultiDropdown, cascadeDropdown, ccLoadingLayer,dInputSync, dHighChart, dpHighChart, dropdownBtn, splitDropdown, hasFeature, rtm) {
   var authModName = 'app.widgets',
     mod = angular.module(authModName, []);
   rtm(
@@ -20,6 +21,7 @@ define([
       ccLoadingLayer,
       dInputSync,
       dHighChart,
+      dpHighChart,
       dropdownBtn,
       splitDropdown,
       hasFeature
