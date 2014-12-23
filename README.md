@@ -10,11 +10,13 @@ Featues:
 
 * Provides grunt build process for code online's distribution
 * Can generate model based on existing project
+* Can generate chart just like model on existing project
 
 ## Demo
 https://github.com/pingyuanChen/generator-admin-example
 ![Demo](https://github.com/pingyuanChen/generator-admin-example/blob/master/demo.png)
 ![Demo](https://github.com/pingyuanChen/generator-admin-example/blob/master/demo-edit.png)
+![Demo](https://github.com/pingyuanChen/generator-admin-example/blob/master/demo-chart.png)
 
 ## Getting Started
 
@@ -224,6 +226,10 @@ in 'my-new-project/config' directory and add model config file, such as tv-play.
 Then, cd 'my-new-project' and run:
 ```
 $ yo admin:model 
+```
+You can also generate chart just like model:
+```
+$ yo admin:chart
 ```
 At end, run the node server to serve the website, 'cd' into SampleApp/server/:
 ```

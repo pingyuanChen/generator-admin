@@ -25,7 +25,7 @@ define(function(){
                     '</div>'+
                   '</div>';
         }else{
-          return '<select ng-repeat="itemName in selectName" ng-options="item.value as item.display_value for item in selectedModel[itemName] | filter:{parent:cparentChecked($index)}:true" ng-model="checked[itemName]" ng-change="updateSub($index+1)"></select>';
+          return '<select ng-repeat="itemName in selectName" ng-options="item.value as item.display_value for item in selectedModel[itemName] | filter:{parent:parentChecked($index)}:true" ng-model="checked[itemName]" ng-change="updateSub($index+1)"></select>';
         }
       },
       link: function($scope, $element, $attrs){
