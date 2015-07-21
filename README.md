@@ -227,6 +227,10 @@ Then, cd 'my-new-project' and run:
 ```
 $ yo admin:model 
 ```
+this command will create all the models in config/ directory, if you want to create specific model, you have to provide the model name, like:
+```
+$ yo admin:model movie
+```
 You can also generate chart just like model:
 ```
 $ yo admin:chart
